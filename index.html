@@ -13,6 +13,10 @@
       background: #ffffff;
       margin: 0;
       padding: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
 
@@ -22,55 +26,50 @@
     }
 
     .logo {
-      width: 420px;
-      max-width: 90vw;
+      width: 460px;
+      max-width: 92vw;
       display: block;
       margin: 0 auto;
+      box-shadow: none;
+      border: none;
+      background: transparent;
     }
 
-    /* Flowing glow — starts at bottom of Y and moves upward */
+    /* Flowing glow — ONLY on the right side of the Y, bottom to top */
     .flow-glow {
       position: absolute;
-      top: 58%;
-      left: 52%;
-      width: 32%;
-      height: 55%;
+      top: 38%;
+      left: 54%;
+      width: 26%;
+      height: 62%;
       background: linear-gradient(
         180deg,
         transparent 0%,
-        rgba(103, 232, 249, 0.95) 35%,
+        rgba(103, 232, 249, 0.95) 30%,
         rgba(103, 232, 249, 0.95) 65%,
         transparent 100%
       );
       opacity: 0;
       border-radius: 50%;
-      animation: flowUpY 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      animation: flowUpY 4.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       pointer-events: none;
       mix-blend-mode: screen;
-      filter: blur(10px);
+      filter: blur(8px);
     }
 
     @keyframes flowUpY {
-      0%   { opacity: 0; transform: translateY(60px) scale(0.8); }
-      25%  { opacity: 0.95; transform: translateY(10px) scale(1.05); }
-      50%  { opacity: 0.95; transform: translateY(-30px) scale(1.1); }
-      75%  { opacity: 0.75; transform: translateY(-70px) scale(0.95); }
-      100% { opacity: 0; transform: translateY(-110px) scale(0.8); }
+      0%   { opacity: 0; transform: translateY(65px) scale(0.75); }
+      25%  { opacity: 0.95; transform: translateY(15px) scale(1.05); }
+      55%  { opacity: 0.95; transform: translateY(-35px) scale(1.08); }
+      80%  { opacity: 0.65; transform: translateY(-75px) scale(0.9); }
+      100% { opacity: 0; transform: translateY(-110px) scale(0.75); }
     }
   </style>
 </head>
-<body class="bg-white min-h-screen flex items-center justify-center">
-  <div class="text-center">
-    <!-- Logo with animation -->
-    <div class="logo-container mx-auto mb-8">
-      <img src="logo.png" alt="Keyra" class="logo">
-      <div class="flow-glow"></div>
-    </div>
-
-    <!-- Single clean tagline -->
-    <p class="text-4xl font-medium tracking-tight text-teal-800">
-      Unlocking Wellness
-    </p>
+<body>
+  <div class="logo-container">
+    <img src="logo.png" alt="Keyra" class="logo">
+    <div class="flow-glow"></div>
   </div>
 </body>
 </html>
