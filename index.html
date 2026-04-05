@@ -1,99 +1,46 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2761
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyra — Unlocking Wellness</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="en">\
-<head>\
-  <meta charset="UTF-8">\
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-  <title>Keyra \'97 Unlocking Wellness</title>\
-  <script src="https://cdn.tailwindcss.com"></script>\
-  <style>\
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');\
-    \
-    body \{\
-      font-family: 'Inter', system-ui, sans-serif;\
-    \}\
-\
-    .logo-container \{\
-      position: relative;\
-      display: inline-block;\
-    \}\
-\
-    .logo \{\
-      width: 420px;\
-      max-width: 90vw;\
-      filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.08));\
-    \}\
-\
-    /* Flowing glow animation on the right side of the Y */\
-    .flow-glow \{\
-      position: absolute;\
-      top: 38%;\
-      left: 58%;\
-      width: 28%;\
-      height: 48%;\
-      background: linear-gradient(\
-        90deg,\
-        transparent 0%,\
-        rgba(103, 232, 249, 0.9) 40%,\
-        rgba(103, 232, 249, 0.9) 60%,\
-        transparent 100%\
-      );\
-      opacity: 0;\
-      border-radius: 50%;\
-      animation: flowRightY 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;\
-      pointer-events: none;\
-      mix-blend-mode: screen;\
-      filter: blur(8px);\
-    \}\
-\
-    @keyframes flowRightY \{\
-      0%   \{ opacity: 0; transform: translateY(-30px) scale(0.8); \}\
-      20%  \{ opacity: 0.95; transform: translateY(0px) scale(1); \}\
-      50%  \{ opacity: 0.95; transform: translateY(40px) scale(1.1); \}\
-      80%  \{ opacity: 0.7; transform: translateY(70px) scale(0.9); \}\
-      100% \{ opacity: 0; transform: translateY(110px) scale(0.8); \}\
-    \}\
-\
-    .tagline \{\
-      font-size: 1.35rem;\
-      letter-spacing: -0.02em;\
-      color: #0f766e;\
-    \}\
-  </style>\
-</head>\
-<body class="bg-white min-h-screen flex items-center justify-center overflow-hidden">\
-  <div class="text-center">\
-    <!-- Logo with animation -->\
-    <div class="logo-container mx-auto mb-6">\
-      <img \
-        src="YOUR-KEYRA-LOGO.png" \
-        alt="Keyra \'97 Unlocking Wellness"\
-        class="logo mx-auto"\
-      >\
-      <!-- Flowing glow layer (only affects the right side of the Y) -->\
-      <div class="flow-glow"></div>\
-    </div>\
-\
-    <!-- Tagline -->\
-    <p class="tagline font-medium tracking-tight">\
-      Unlocking Wellness\
-    </p>\
-\
-    <!-- Very subtle subtext -->\
-    <p class="mt-12 text-xs text-teal-700/60 font-light tracking-widest">\
-      PEPTIDE SUPPORT \'95 CLINICIAN REVIEWED \'95 HOME DELIVERY\
-    </p>\
-  </div>\
-\
-  <script>\
-    // Optional: Auto-reload the animation if you want to tweak timing\
-    console.log('%c\uc0\u9989  Keyra landing page loaded with flowing Y animation', 'color:#0f766e; font-family:monospace;');\
-  </script>\
-</body>\
-</html>}
+    .logo-container { position: relative; display: inline-block; }
+    .logo { width: 420px; max-width: 90vw; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.08)); }
+
+    .flow-glow {
+      position: absolute;
+      top: 38%; left: 58%;
+      width: 28%; height: 48%;
+      background: linear-gradient(90deg, transparent 0%, rgba(103,232,249,0.9) 40%, rgba(103,232,249,0.9) 60%, transparent 100%);
+      opacity: 0;
+      border-radius: 50%;
+      animation: flowRightY 4s cubic-bezier(0.4,0,0.6,1) infinite;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      filter: blur(8px);
+    }
+
+    @keyframes flowRightY {
+      0%   { opacity: 0; transform: translateY(-30px) scale(0.8); }
+      20%  { opacity: 0.95; transform: translateY(0px) scale(1); }
+      50%  { opacity: 0.95; transform: translateY(40px) scale(1.1); }
+      80%  { opacity: 0.7; transform: translateY(70px) scale(0.9); }
+      100% { opacity: 0; transform: translateY(110px) scale(0.8); }
+    }
+  </style>
+</head>
+<body class="bg-white min-h-screen flex items-center justify-center">
+  <div class="text-center">
+    <div class="logo-container mx-auto mb-6">
+      <img src="logo.png" alt="Keyra — Unlocking Wellness" class="logo mx-auto">
+      <div class="flow-glow"></div>
+    </div>
+    <p class="text-3xl font-medium tracking-tight text-teal-800">Unlocking Wellness</p>
+  </div>
+</body>
+</html>
