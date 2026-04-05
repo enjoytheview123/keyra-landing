@@ -30,11 +30,46 @@
       max-width: 92vw;
       display: block;
       margin: 0 auto;
-      box-shadow: none;
-      border: none;
-      background: transparent;
     }
 
+    /* Slow glowing flow — starts at bottom of Y and moves upward on the right side */
+    .flow-glow {
+      position: absolute;
+      top: 55%;
+      left: 52%;
+      width: 28%;
+      height: 68%;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(103, 232, 249, 0.95) 30%,
+        rgba(103, 232, 249, 0.95) 65%,
+        transparent 100%
+      );
+      opacity: 0;
+      border-radius: 50%;
+      animation: flowUpY 20s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      filter: blur(10px);
+    }
+
+    @keyframes flowUpY {
+      0%   { opacity: 0; transform: translateY(80px) scale(0.7); }
+      20%  { opacity: 0.95; transform: translateY(20px) scale(1.05); }
+      45%  { opacity: 0.95; transform: translateY(-35px) scale(1.1); }
+      70%  { opacity: 0.65; transform: translateY(-75px) scale(0.95); }
+      100% { opacity: 0; transform: translateY(-120px) scale(0.75); }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo-container">
+    <img src="logo.png" alt="Keyra" class="logo">
+    <div class="flow-glow"></div>
+  </div>
+</body>
+</html>
     /* Flowing glow — ONLY on the right side of the Y, bottom to top */
     .flow-glow {
       position: absolute;
