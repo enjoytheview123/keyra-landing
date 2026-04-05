@@ -7,40 +7,70 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-    body { font-family: 'Inter', system-ui, sans-serif; }
-
-    .logo-container { position: relative; display: inline-block; }
-    .logo { width: 420px; max-width: 90vw; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.08)); }
-
-    .flow-glow {
-      position: absolute;
-      top: 38%; left: 58%;
-      width: 28%; height: 48%;
-      background: linear-gradient(90deg, transparent 0%, rgba(103,232,249,0.9) 40%, rgba(103,232,249,0.9) 60%, transparent 100%);
-      opacity: 0;
-      border-radius: 50%;
-      animation: flowRightY 4s cubic-bezier(0.4,0,0.6,1) infinite;
-      pointer-events: none;
-      mix-blend-mode: screen;
-      filter: blur(8px);
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
     }
 
-    @keyframes flowRightY {
-      0%   { opacity: 0; transform: translateY(-30px) scale(0.8); }
-      20%  { opacity: 0.95; transform: translateY(0px) scale(1); }
-      50%  { opacity: 0.95; transform: translateY(40px) scale(1.1); }
-      80%  { opacity: 0.7; transform: translateY(70px) scale(0.9); }
-      100% { opacity: 0; transform: translateY(110px) scale(0.8); }
+    .logo-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .logo {
+      width: 420px;
+      max-width: 90vw;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Flowing glow — starts at bottom of Y and moves upward */
+    .flow-glow {
+      position: absolute;
+      top: 58%;
+      left: 52%;
+      width: 32%;
+      height: 55%;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(103, 232, 249, 0.95) 35%,
+        rgba(103, 232, 249, 0.95) 65%,
+        transparent 100%
+      );
+      opacity: 0;
+      border-radius: 50%;
+      animation: flowUpY 4.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      pointer-events: none;
+      mix-blend-mode: screen;
+      filter: blur(10px);
+    }
+
+    @keyframes flowUpY {
+      0%   { opacity: 0; transform: translateY(60px) scale(0.8); }
+      25%  { opacity: 0.95; transform: translateY(10px) scale(1.05); }
+      50%  { opacity: 0.95; transform: translateY(-30px) scale(1.1); }
+      75%  { opacity: 0.75; transform: translateY(-70px) scale(0.95); }
+      100% { opacity: 0; transform: translateY(-110px) scale(0.8); }
     }
   </style>
 </head>
 <body class="bg-white min-h-screen flex items-center justify-center">
   <div class="text-center">
-    <div class="logo-container mx-auto mb-6">
-      <img src="logo.png" alt="Keyra — Unlocking Wellness" class="logo mx-auto">
+    <!-- Logo with animation -->
+    <div class="logo-container mx-auto mb-8">
+      <img src="logo.png" alt="Keyra" class="logo">
       <div class="flow-glow"></div>
     </div>
-    <p class="text-3xl font-medium tracking-tight text-teal-800">Unlocking Wellness</p>
+
+    <!-- Single clean tagline -->
+    <p class="text-4xl font-medium tracking-tight text-teal-800">
+      Unlocking Wellness
+    </p>
   </div>
 </body>
 </html>
