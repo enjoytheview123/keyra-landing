@@ -30,30 +30,39 @@
       max-width: 92vw;
       display: block;
       margin: 0 auto;
+      background: transparent;
     }
 
-    /* Slow glowing flow — originates from bottom of Y and moves upward on the right side */
+    /* Glow starts at bottom of Y, moves slowly upward, ends in burst at top */
     .flow-glow {
       position: absolute;
-      top: 55%;
+      top: 62%;
       left: 52%;
-      width: 28%;
-      height: 68%;
-      background: linear-gradient(180deg, transparent 0%, rgba(103,232,249,0.95) 30%, rgba(103,232,249,0.95) 65%, transparent 100%);
+      width: 29%;
+      height: 72%;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(103, 232, 249, 0.9) 25%,
+        rgba(103, 232, 249, 0.95) 55%,
+        rgba(103, 232, 249, 1) 78%,
+        transparent 100%
+      );
       opacity: 0;
       border-radius: 50%;
       animation: flowUpY 20s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       pointer-events: none;
       mix-blend-mode: screen;
-      filter: blur(10px);
+      filter: blur(9px);
     }
 
     @keyframes flowUpY {
-      0%   { opacity: 0; transform: translateY(80px) scale(0.7); }
-      20%  { opacity: 0.95; transform: translateY(20px) scale(1.05); }
-      45%  { opacity: 0.95; transform: translateY(-35px) scale(1.1); }
-      70%  { opacity: 0.65; transform: translateY(-75px) scale(0.95); }
-      100% { opacity: 0; transform: translateY(-120px) scale(0.75); }
+      0%   { opacity: 0; transform: translateY(75px) scale(0.75); }
+      22%  { opacity: 0.9; transform: translateY(20px) scale(1.02); }
+      48%  { opacity: 0.95; transform: translateY(-32px) scale(1.08); }
+      72%  { opacity: 1; transform: translateY(-68px) scale(1.15); }   /* burst at top */
+      88%  { opacity: 0.6; transform: translateY(-95px) scale(0.95); }
+      100% { opacity: 0; transform: translateY(-125px) scale(0.7); }
     }
   </style>
 </head>
