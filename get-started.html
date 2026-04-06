@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyra — Get Started</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+    
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      width: 420px;
+      max-width: 90vw;
+      display: block;
+      margin: 0 auto 40px;
+    }
+
+    .headline-container {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 18px;
+    }
+
+    .headline {
+      font-size: 2.85rem;
+      line-height: 1.05;
+      font-weight: 600;
+      color: #111827;
+    }
+
+    /* Flowing cyan river path */
+    .flow-path {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 7px;
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        #14b8a6 25%, 
+        #67e8f9 50%, 
+        #14b8a6 75%, 
+        transparent 100%);
+      background-size: 200% 100%;
+      border-radius: 9999px;
+      animation: riverFlow 5.5s linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes riverFlow {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="max-w-2xl w-full px-6 text-center">
+    
+    <!-- Logo -->
+    <img src="logo.png" alt="Keyra" class="logo">
+
+    <!-- Headline with flowing cyan path -->
+    <div class="headline-container mx-auto">
+      <h1 class="headline">
+        Want a simpler path to accessing your wellness needs?
+      </h1>
+      <div class="flow-path"></div>
+    </div>
+
+    <!-- Sub-headline -->
+    <p class="text-xl text-teal-700 mb-12 max-w-lg mx-auto">
+      Unlock clinician-coordinated peptide support — private, convenient, and delivered to your door.
+    </p>
+
+    <!-- Bullet Points with Glowing Checkmarks -->
+    <div class="text-left max-w-md mx-auto mb-16 space-y-7">
+      <div class="flex items-start gap-5">
+        <span class="text-teal-600 text-2xl mt-0.5">✔</span>
+        <span class="text-lg">Simple access to clinician-reviewed peptides for energy, recovery, and overall well-being</span>
+      </div>
+      <div class="flex items-start gap-5">
+        <span class="text-teal-600 text-2xl mt-0.5">✔</span>
+        <span class="text-lg">Targeted options including vitality & growth support, healing & repair, and confidence & intimacy peptides</span>
+      </div>
+      <div class="flex items-start gap-5">
+        <span class="text-teal-600 text-2xl mt-0.5">✔</span>
+        <span class="text-lg">Start with a quick online quiz — no long clinic visits or wait times</span>
+      </div>
+      <div class="flex items-start gap-5">
+        <span class="text-teal-600 text-2xl mt-0.5">✔</span>
+        <span class="text-lg">Transparent pricing with no hidden fees or memberships</span>
+      </div>
+      <div class="flex items-start gap-5">
+        <span class="text-teal-600 text-2xl mt-0.5">✔</span>
+        <span class="text-lg">Convenient home delivery with clear guidance included</span>
+      </div>
+      <div class="flex items-start gap-5">
+        <span class="text-teal-600 text-2xl mt-0.5">✔</span>
+        <span class="text-lg">Coordinated by independent licensed clinicians who review every case</span>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <button onclick="startQuiz()" 
+            class="bg-teal-600 hover:bg-teal-700 text-white px-12 py-5 rounded-2xl font-medium text-xl transition shadow-md">
+      Am I a good fit?
+    </button>
+  </div>
+
+  <script>
+    function startQuiz() {
+      alert("Quiz coming soon! In the meantime, feel free to reach out.");
+    }
+  </script>
+</body>
+</html>
