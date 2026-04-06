@@ -10,9 +10,6 @@
     
     body {
       font-family: 'Inter', system-ui, sans-serif;
-      background: #ffffff;
-      margin: 0;
-      padding: 0;
     }
 
     .hero {
@@ -22,40 +19,38 @@
       overflow: hidden;
     }
 
-    .y-flow {
+    .logo-nav {
+      height: 52px;
+    }
+
+    .flow-path {
       position: absolute;
-      bottom: -80px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 280px;
-      height: 280px;
-      border: 12px solid rgba(103, 232, 249, 0.25);
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      animation: yFlow 25s linear infinite;
-      opacity: 0.6;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, transparent, #67e8f9, #14b8a6, #67e8f9, transparent);
+      background-size: 200% 100%;
+      animation: flow 7s linear infinite;
     }
 
-    @keyframes yFlow {
-      0% { transform: translateX(-50%) rotate(0deg); }
-      100% { transform: translateX(-50%) rotate(360deg); }
-    }
-
-    .scroll-container {
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
-    .scroll-container::-webkit-scrollbar {
-      display: none;
+    @keyframes flow {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
   </style>
 </head>
-<body>
+<body class="bg-white">
 
   <!-- Navigation -->
   <nav class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md z-50 border-b">
     <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-      <img src="logo.png" alt="Keyra" class="h-9">
+      <img src="logo.png" alt="Keyra" class="logo-nav">
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#" class="hover:text-teal-600">How it works</a>
+        <a href="#" class="hover:text-teal-600">Peptides</a>
+        <a href="#" class="hover:text-teal-600">For You</a>
+      </div>
       <a href="#get-started" class="bg-teal-600 text-white px-6 py-2.5 rounded-2xl font-medium hover:bg-teal-700 transition">
         Am I a good fit?
       </a>
@@ -64,51 +59,60 @@
 
   <!-- Hero -->
   <section class="hero pt-32 pb-28 relative">
-    <div class="y-flow"></div>
-    <div class="max-w-5xl mx-auto px-6 text-center relative z-10">
+    <div class="flow-path"></div>
+    <div class="max-w-5xl mx-auto px-6 text-center">
       <h1 class="text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-6">
-        Want a simpler path to accessing<br>your wellness needs?
+        Want a simpler path to accessing your wellness needs?
       </h1>
       <p class="text-2xl text-teal-100 max-w-3xl mx-auto">
         Unlock clinician-coordinated peptide support — private, balanced, and delivered to your door.
       </p>
-    </div>
-  </section>
 
-  <!-- Scrolling Benefits -->
-  <section class="py-12 bg-white border-b">
-    <div class="scroll-container whitespace-nowrap flex gap-8 px-6">
-      <div class="inline-flex items-center gap-4 bg-white border border-gray-100 rounded-3xl px-8 py-6 min-w-[320px]">
-        <span class="text-4xl">🌱</span>
-        <div>
-          <div class="font-semibold">Vitality & Growth</div>
-          <div class="text-sm text-gray-600">Support for daily energy and balance</div>
-        </div>
-      </div>
-      <div class="inline-flex items-center gap-4 bg-white border border-gray-100 rounded-3xl px-8 py-6 min-w-[320px]">
-        <span class="text-4xl">🛠️</span>
-        <div>
-          <div class="font-semibold">Healing & Repair</div>
-          <div class="text-sm text-gray-600">Gentle support for recovery</div>
-        </div>
-      </div>
-      <div class="inline-flex items-center gap-4 bg-white border border-gray-100 rounded-3xl px-8 py-6 min-w-[320px]">
-        <span class="text-4xl">❤️</span>
-        <div>
-          <div class="font-semibold">Confidence & Intimacy</div>
-          <div class="text-sm text-gray-600">Restore connection and confidence</div>
-        </div>
+      <div class="mt-12">
+        <a href="#get-started" 
+           class="inline-block bg-white text-teal-700 px-10 py-4 rounded-2xl font-semibold text-lg hover:bg-teal-50 transition">
+          Take the 60-second quiz
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- Categories / Benefits -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="bg-white border border-gray-100 rounded-3xl p-8 text-center hover:shadow-md transition">
+          <div class="text-5xl mb-6">⚡</div>
+          <h3 class="font-semibold text-xl mb-2">Vitality & Growth</h3>
+          <p class="text-gray-600 text-sm">Support for daily energy and feeling balanced.</p>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-3xl p-8 text-center hover:shadow-md transition">
+          <div class="text-5xl mb-6">🛠️</div>
+          <h3 class="font-semibold text-xl mb-2">Healing & Repair</h3>
+          <p class="text-gray-600 text-sm">Targeted support for recovery and restoration.</p>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-3xl p-8 text-center hover:shadow-md transition">
+          <div class="text-5xl mb-6">❤️</div>
+          <h3 class="font-semibold text-xl mb-2">Confidence & Intimacy</h3>
+          <p class="text-gray-600 text-sm">Options that help restore confidence and connection.</p>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-3xl p-8 text-center hover:shadow-md transition">
+          <div class="text-5xl mb-6">🌱</div>
+          <h3 class="font-semibold text-xl mb-2">Overall Balance</h3>
+          <p class="text-gray-600 text-sm">Gentle, natural support for long-term wellness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works + CTA -->
   <section id="get-started" class="py-24 bg-gray-50">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-semibold mb-6">Ready for balance?</h2>
-      <p class="text-lg text-gray-600 mb-10">Start with a simple quiz. Get reviewed by a licensed clinician. Receive guidance and support at home.</p>
+      <h2 class="text-4xl font-semibold mb-6">Simple. Private. Balanced.</h2>
+      <p class="text-lg text-gray-600 mb-10">Start with a quick quiz. Get reviewed by a licensed clinician. Receive guidance and support delivered to your home.</p>
       
-      <a href="#" class="inline-block bg-teal-600 text-white px-12 py-5 rounded-3xl font-medium text-xl hover:bg-teal-700 transition">
+      <a href="#" 
+         class="inline-block bg-teal-600 text-white px-12 py-5 rounded-3xl font-medium text-xl hover:bg-teal-700 transition">
         Begin Your Journey
       </a>
     </div>
