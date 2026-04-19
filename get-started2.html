@@ -21,10 +21,10 @@
         .logo-font { font-family: 'Space Grotesk', sans-serif; }
         
         .hero-bg {
-            background-image: linear-gradient(rgba(15, 118, 110, 0.38), rgba(15, 118, 110, 0.48)), 
+            background-image: linear-gradient(rgba(15, 118, 110, 0.36), rgba(15, 118, 110, 0.46)), 
                               url('wellness5.jpg');
             background-size: cover;
-            background-position: center 15%;
+            background-position: center 12%;
             background-attachment: fixed;
             min-height: 100vh;
             display: flex;
@@ -35,7 +35,7 @@
             .hero-bg {
                 background-position: center center;
                 background-size: cover;
-                min-height: 92vh;
+                min-height: 94vh;
             }
         }
         
@@ -101,13 +101,13 @@
         </div>
     </nav>
 
-    <!-- HERO – wellness5.jpg in full color, showing more of the image (ro.com style) -->
+    <!-- HERO – wellness5.jpg (more of the image visible, ro.com style) + large integrated logo -->
     <header class="hero-bg text-white relative">
-        <div class="max-w-screen-2xl mx-auto px-6 pt-16 pb-12">
+        <div class="max-w-screen-2xl mx-auto px-6 pt-14 pb-12">
             <div class="max-w-2xl">
-                <!-- Large visual logo -->
-                <div class="mb-6">
-                    <img src="logo.png" alt="Keyra" class="h-16 md:h-20 w-auto drop-shadow-lg">
+                <!-- Large, integrated logo (not an afterthought) -->
+                <div class="mb-5">
+                    <img src="logo.png" alt="Keyra" class="h-20 md:h-24 w-auto drop-shadow-2xl">
                 </div>
                 
                 <div class="inline-flex items-center gap-x-2 bg-white/20 backdrop-blur-md border border-white/30 rounded-3xl px-6 py-2 text-sm mb-8">
@@ -136,7 +136,7 @@
         </div>
     </header>
 
-    <!-- PEPTIDES SECTION (kept exactly as requested) -->
+    <!-- PEPTIDES SECTION (kept exactly as you like it) -->
     <section id="peptides" class="section-padding px-6 bg-white">
         <div class="max-w-screen-2xl mx-auto">
             <div class="text-center mb-12">
@@ -175,7 +175,7 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS (kept exactly as you like it) -->
+    <!-- HOW IT WORKS (kept exactly as you like it, especially on mobile) -->
     <section id="how" class="section-padding px-6 bg-[#f8fffe]">
         <div class="max-w-screen-2xl mx-auto">
             <div class="text-center mb-12">
@@ -209,7 +209,7 @@
         </div>
     </section>
 
-    <!-- FOR YOU -->
+    <!-- FOR YOU / PRACTICAL SUPPORT (now with image placeholders — provide the 3 images below) -->
     <section id="foryou" class="section-padding px-6 bg-white">
         <div class="max-w-screen-2xl mx-auto">
             <div class="text-center mb-12">
@@ -217,19 +217,20 @@
                 <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Practical support for everyday people</h2>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Replace these 3 images with your lifestyle photos -->
                 <div class="bg-white rounded-3xl p-8 border border-gray-100 premium-shadow">
-                    <i class="fa-solid fa-bolt text-5xl text-[#22d3ee]"></i>
-                    <h3 class="text-2xl font-semibold mt-6">Steady energy</h3>
+                    <img src="energy.jpg" alt="Person with steady energy" class="w-full h-48 object-cover rounded-2xl mb-6">
+                    <h3 class="text-2xl font-semibold">Steady energy</h3>
                     <p class="mt-3 text-gray-600">Feel sharper and more present through your busy days — without the afternoon crash.</p>
                 </div>
                 <div class="bg-white rounded-3xl p-8 border border-gray-100 premium-shadow">
-                    <i class="fa-solid fa-heart-pulse text-5xl text-[#22d3ee]"></i>
-                    <h3 class="text-2xl font-semibold mt-6">Faster recovery</h3>
+                    <img src="recovery.jpg" alt="Person recovering and active" class="w-full h-48 object-cover rounded-2xl mb-6">
+                    <h3 class="text-2xl font-semibold">Faster recovery</h3>
                     <p class="mt-3 text-gray-600">Bounce back quicker from stress, workouts, or long days.</p>
                 </div>
                 <div class="bg-white rounded-3xl p-8 border border-gray-100 premium-shadow">
-                    <i class="fa-solid fa-face-smile text-5xl text-[#22d3ee]"></i>
-                    <h3 class="text-2xl font-semibold mt-6">Quiet confidence</h3>
+                    <img src="balance.jpg" alt="Person feeling balanced and calm" class="w-full h-48 object-cover rounded-2xl mb-6">
+                    <h3 class="text-2xl font-semibold">Quiet confidence</h3>
                     <p class="mt-3 text-gray-600">Feel more like yourself — balanced, capable, and in control.</p>
                 </div>
             </div>
@@ -388,7 +389,7 @@
             closeQuizModal();
         }
         
-        console.log('%c✅ Keyra landing page updated — more of wellness5.jpg visible (desktop + mobile), large logo prominently featured, steps & peptides kept exactly as requested', 'color:#22d3ee; font-weight:600');
+        console.log('%c✅ Keyra landing page updated — logo now large & seamlessly integrated in hero, hero shows more of wellness5.jpg, For You section ready for your 3 lifestyle images', 'color:#22d3ee; font-weight:600');
     </script>
 </body>
 </html>
