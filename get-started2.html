@@ -53,7 +53,7 @@
         
         @media (max-width: 768px) {
             .hero-text {
-                top: 7%;
+                top: 8%;
                 left: 6%;
                 right: 6%;
                 max-width: none;
@@ -92,36 +92,43 @@
                 <i class="fa-solid fa-rocket"></i> Take 60-second quiz
             </button>
             
+            <!-- Mobile hamburger (fixed icon) -->
             <button onclick="toggleMobileMenu()" class="lg:hidden text-3xl text-[#0f766e]">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
         
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="hidden lg:hidden fixed inset-0 bg-white z-[999] pt-20 px-6">
-            <div class="flex flex-col gap-y-8 text-2xl font-medium text-gray-800">
-                <a href="#how" onclick="toggleMobileMenu()" class="py-3">How it works</a>
-                <a href="#peptides" onclick="toggleMobileMenu()" class="py-3">Peptides</a>
-                <a href="#foryou" onclick="toggleMobileMenu()" class="py-3">For you</a>
-                <a href="#difference" onclick="toggleMobileMenu()" class="py-3">Difference</a>
-                <a href="#faq" onclick="toggleMobileMenu()" class="py-3">FAQ</a>
+        <!-- IMPROVED MOBILE MENU -->
+        <div id="mobileMenu" class="hidden lg:hidden fixed inset-0 bg-white z-[999] pt-16">
+            <div class="px-6 py-8">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="logo-font text-3xl font-semibold text-[#0f766e]">Keyra</span>
+                    <button onclick="toggleMobileMenu()" class="text-4xl text-gray-400 hover:text-gray-600">×</button>
+                </div>
+                
+                <div class="flex flex-col gap-y-2 text-xl font-medium text-gray-800">
+                    <a href="#how" onclick="toggleMobileMenu()" class="py-4 px-4 hover:bg-gray-100 rounded-2xl">How it works</a>
+                    <a href="#peptides" onclick="toggleMobileMenu()" class="py-4 px-4 hover:bg-gray-100 rounded-2xl">Peptides</a>
+                    <a href="#foryou" onclick="toggleMobileMenu()" class="py-4 px-4 hover:bg-gray-100 rounded-2xl">For you</a>
+                    <a href="#difference" onclick="toggleMobileMenu()" class="py-4 px-4 hover:bg-gray-100 rounded-2xl">Difference</a>
+                    <a href="#faq" onclick="toggleMobileMenu()" class="py-4 px-4 hover:bg-gray-100 rounded-2xl">FAQ</a>
+                </div>
+                
+                <button onclick="openQuizModal();toggleMobileMenu()" 
+                        class="mt-10 w-full py-5 bg-[#22d3ee] text-white text-xl font-semibold rounded-3xl flex items-center justify-center gap-x-3">
+                    <i class="fa-solid fa-rocket"></i> Take 60-second quiz
+                </button>
             </div>
-            <button onclick="openQuizModal();toggleMobileMenu()" class="mt-12 w-full py-6 bg-[#22d3ee] text-white text-2xl font-semibold rounded-3xl">
-                Take 60-second quiz
-            </button>
         </div>
     </nav>
 
-    <!-- HERO – Full foreground image with improved mobile text placement -->
+    <!-- HERO -->
     <header class="relative overflow-hidden bg-white">
         <img src="wellness5.jpg" alt="Keyra wellness lifestyle with healthy kitchen scene" class="hero-image w-full">
         
-        <!-- Text overlay - improved mobile positioning -->
         <div class="absolute inset-0 bg-gradient-to-b from-[#0f766e]/32 via-[#0f766e]/12 to-transparent">
             <div class="max-w-screen-2xl mx-auto px-6 pt-12 md:pt-14">
                 <div class="max-w-xl">
-                    
-                    <!-- Compact scarcity banner (better on mobile) -->
                     <div class="inline-flex items-center gap-x-2 bg-white/90 backdrop-blur-md border border-white/60 rounded-3xl px-4 py-1 text-[10px] md:text-xs mb-4 shadow-sm">
                         <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22d3ee]"></span>
@@ -143,10 +150,7 @@
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
-                    
-                    <!-- Moved "No commitment" line to better mobile location -->
                     <p class="mt-5 text-sm text-white/90">No commitment • Spots are limited</p>
-                    
                 </div>
             </div>
         </div>
@@ -191,7 +195,7 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS (kept exactly as you like it) -->
+    <!-- HOW IT WORKS -->
     <section id="how" class="section-padding px-6 bg-[#f8fffe]">
         <div class="max-w-screen-2xl mx-auto">
             <div class="text-center mb-12">
@@ -225,7 +229,7 @@
         </div>
     </section>
 
-    <!-- FOR YOU (provide 3 images - see note at bottom) -->
+    <!-- FOR YOU (provide 3 cropped images - see note below) -->
     <section id="foryou" class="section-padding px-6 bg-white">
         <div class="max-w-screen-2xl mx-auto">
             <div class="text-center mb-12">
@@ -404,7 +408,7 @@
             closeQuizModal();
         }
         
-        console.log('%c✅ Keyra landing page refined — mobile hero text fixed, scarcity banner compact, commitment line better placed', 'color:#22d3ee; font-weight:600');
+        console.log('%c✅ Keyra landing page updated — mobile menu fully redesigned for clarity and ease of use', 'color:#22d3ee; font-weight:600');
     </script>
 </body>
 </html>
