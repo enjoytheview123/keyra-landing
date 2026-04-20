@@ -29,21 +29,31 @@
         
         .hero-image {
             width: 100%;
+            max-height: 720px;
             height: auto;
+            object-fit: cover;
+            object-position: center 15%;
             display: block;
         }
         
-        .hero-overlay-text {
+        @media (max-width: 768px) {
+            .hero-image {
+                max-height: 580px;
+                object-position: center 20%;
+            }
+        }
+        
+        .hero-text {
             position: absolute;
-            top: 12%;
-            left: 8%;
+            top: 14%;
+            left: 7%;
             max-width: 520px;
-            z-index: 10;
+            z-index: 20;
         }
         
         @media (max-width: 768px) {
-            .hero-overlay-text {
-                top: 8%;
+            .hero-text {
+                top: 10%;
                 left: 6%;
                 right: 6%;
                 max-width: none;
@@ -102,15 +112,15 @@
         </div>
     </nav>
 
-    <!-- HERO – Full foreground image (wellness5.jpg in its entirety) with strategically placed text -->
-    <header class="relative overflow-hidden">
-        <img src="wellness5.jpg" alt="Keyra wellness lifestyle" class="w-full h-auto block">
+    <!-- HERO – Foreground image (full wellness5.jpg visible, optimally sized) + strategic text overlay -->
+    <header class="relative overflow-hidden bg-white">
+        <img src="wellness5.jpg" alt="Keyra wellness lifestyle with healthy kitchen scene" class="hero-image w-full">
         
-        <!-- Text overlay – strategically placed on the clean upper portion of the image -->
-        <div class="absolute inset-0 bg-gradient-to-b from-[#0f766e]/40 via-[#0f766e]/20 to-transparent flex items-start pt-16 md:pt-20">
-            <div class="max-w-screen-2xl mx-auto px-6 w-full">
-                <div class="max-w-xl">
-                    <div class="inline-flex items-center gap-x-2 bg-white/90 backdrop-blur-md border border-white/60 rounded-3xl px-5 py-1.5 text-xs mb-6 shadow-sm">
+        <!-- Strategic text overlay (upper clean area of image) -->
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0f766e]/35 via-[#0f766e]/15 to-transparent">
+            <div class="max-w-screen-2xl mx-auto px-6 pt-14 md:pt-16">
+                <div class="max-w-xl hero-text">
+                    <div class="inline-flex items-center gap-x-2 bg-white/90 backdrop-blur-md border border-white/60 rounded-3xl px-5 py-1.5 text-xs mb-5 shadow-sm">
                         <span class="relative flex h-2.5 w-2.5">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22d3ee]"></span>
                             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#22d3ee]"></span>
@@ -176,7 +186,7 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS (kept exactly as you like it) -->
+    <!-- HOW IT WORKS (exactly as you like it) -->
     <section id="how" class="section-padding px-6 bg-[#f8fffe]">
         <div class="max-w-screen-2xl mx-auto">
             <div class="text-center mb-12">
@@ -389,7 +399,7 @@
             closeQuizModal();
         }
         
-        console.log('%c✅ Keyra landing page updated — hero now uses wellness5.jpg as foreground image (full image visible including built-in logo), text strategically overlaid for maximum readability', 'color:#22d3ee; font-weight:600');
+        console.log('%c✅ Keyra landing page refined — hero image optimally sized (no distortion, majority visible), text strategically placed, seamless visual flow into the rest of the site', 'color:#22d3ee; font-weight:600');
     </script>
 </body>
 </html>
