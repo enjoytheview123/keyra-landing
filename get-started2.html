@@ -32,20 +32,20 @@
             max-height: 720px;
             height: auto;
             object-fit: cover;
-            object-position: center 15%;
+            object-position: center 18%;
             display: block;
         }
         
         @media (max-width: 768px) {
             .hero-image {
-                max-height: 580px;
-                object-position: center 20%;
+                max-height: 620px;
+                object-position: center 22%;
             }
         }
         
         .hero-text {
             position: absolute;
-            top: 9%;
+            top: 7%;
             left: 7%;
             max-width: 520px;
             z-index: 20;
@@ -53,7 +53,7 @@
         
         @media (max-width: 768px) {
             .hero-text {
-                top: 6%;
+                top: 5%;
                 left: 6%;
                 right: 6%;
                 max-width: none;
@@ -92,13 +92,13 @@
                 <i class="fa-solid fa-rocket"></i> Take 60-second quiz
             </button>
             
-            <!-- Mobile hamburger (fixed) -->
+            <!-- CORRECT HAMBURGER ICON -->
             <button onclick="toggleMobileMenu()" class="lg:hidden text-3xl text-[#0f766e]">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
         
-        <!-- IMPROVED SOLID MOBILE MENU -->
+        <!-- SOLID MOBILE MENU -->
         <div id="mobileMenu" class="hidden lg:hidden fixed inset-0 bg-white z-[999] pt-16 shadow-2xl">
             <div class="px-6 py-8">
                 <div class="flex justify-between items-center mb-10">
@@ -122,14 +122,14 @@
         </div>
     </nav>
 
-    <!-- HERO -->
+    <!-- HERO - Headline moved higher on mobile so face is fully visible -->
     <header class="relative overflow-hidden bg-white">
         <img src="wellness5.jpg" alt="Keyra wellness lifestyle with healthy kitchen scene" class="hero-image w-full">
         
-        <div class="absolute inset-0 bg-gradient-to-b from-[#0f766e]/32 via-[#0f766e]/12 to-transparent">
-            <div class="max-w-screen-2xl mx-auto px-6 pt-11 md:pt-13">
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0f766e]/30 via-[#0f766e]/10 to-transparent">
+            <div class="max-w-screen-2xl mx-auto px-6 pt-10 md:pt-12">
                 <div class="max-w-xl">
-                    <div class="inline-flex items-center gap-x-2 bg-white/90 backdrop-blur-md border border-white/60 rounded-3xl px-4 py-1 text-[10px] md:text-xs mb-4 shadow-sm">
+                    <div class="inline-flex items-center gap-x-2 bg-white/90 backdrop-blur-md border border-white/60 rounded-3xl px-4 py-1 text-xs mb-4 shadow-sm">
                         <span class="relative flex h-2 w-2">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22d3ee]"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-[#22d3ee]"></span>
@@ -150,7 +150,6 @@
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                     </div>
-                    <p class="mt-5 text-sm text-white/90">No commitment • Spots are limited</p>
                 </div>
             </div>
         </div>
@@ -408,7 +407,7 @@
             closeQuizModal();
         }
         
-        console.log('%c✅ Keyra landing page updated — mobile menu now solid & easy to use, hamburger icon fixed, hero text repositioned on mobile', 'color:#22d3ee; font-weight:600');
+        console.log('%c✅ Keyra landing page verified — headline moved higher on mobile (face fully visible), correct hamburger icon, "No commitment" text removed', 'color:#22d3ee; font-weight:600');
     </script>
 </body>
 </html>
