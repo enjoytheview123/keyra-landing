@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Keyra — Wellness, delivered. Simple, private access to clinician-reviewed peptide support for everyday energy, recovery, and balance.">
+    <meta property="og:title" content="Keyra | Wellness, delivered.">
+    <meta property="og:description" content="Simple, private, clinician-reviewed peptide support for everyday energy, recovery, and balance.">
+    <meta property="og:image" content="wellness5.jpg">
+    <meta property="og:url" content="https://keyra.health">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Keyra | Wellness, delivered.</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -15,16 +20,20 @@
             --vibrant-cyan: #22d3ee;
         }
         
-        * { transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); }
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        * { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
         
         .tail-container * { font-family: 'Inter', system_ui, sans-serif; }
         .logo-font { font-family: 'Space Grotesk', sans-serif; }
         
-        .section-padding { padding-top: 4rem; padding-bottom: 4rem; }
+        .section-padding { padding-top: 4.5rem; padding-bottom: 4.5rem; }
         @media (min-width: 1024px) { .section-padding { padding-top: 6rem; padding-bottom: 6rem; } }
         
         .premium-shadow {
-            box-shadow: 0 25px 50px -12px rgb(15 118 110 / 0.15);
+            box-shadow: 0 25px 50px -12px rgb(15 118 110 / 0.12);
         }
         
         .hero-image {
@@ -45,7 +54,7 @@
         
         .hero-text {
             position: absolute;
-            top: 7%;
+            top: 6%;
             left: 7%;
             max-width: 520px;
             z-index: 20;
@@ -53,23 +62,80 @@
         
         @media (max-width: 768px) {
             .hero-text {
-                top: 5%;
+                top: 4.5%;
                 left: 6%;
                 right: 6%;
                 max-width: none;
             }
         }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease forwards;
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px -15px rgb(15 118 110 / 0.15);
+        }
     </style>
 </head>
 <body class="tail-container bg-white">
 
-    <!-- TRUST BAR -->
-    <div class="bg-[#0f766e] text-white text-xs py-3 px-6 flex items-center justify-center gap-x-8 flex-wrap text-center">
-        <div><i class="fa-solid fa-lock"></i> 100% Private</div>
-        <div><i class="fa-solid fa-user-md"></i> Licensed Clinicians</div>
-        <div><i class="fa-solid fa-truck-fast"></i> Discreet Delivery</div>
-        <div><i class="fa-solid fa-shield-halved"></i> No Commitment</div>
+    <!-- TRUST BAR - auto-scrolling ticker on mobile, static on desktop -->
+    <div class="bg-[#0f766e] text-white text-xs py-3 overflow-hidden">
+        
+        <!-- Mobile: Auto-scrolling ticker -->
+        <div class="md:hidden marquee">
+            <div class="marquee-content flex items-center gap-x-8">
+                <!-- Original items -->
+                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-lock"></i> <span>100% Private</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-user-md"></i> <span>Licensed Clinicians</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-truck-fast"></i> <span>Discreet Delivery</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-shield-halved"></i> <span>No Commitment</span></div>
+                
+                <!-- Duplicate for seamless loop -->
+                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-lock"></i> <span>100% Private</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-user-md"></i> <span>Licensed Clinicians</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-truck-fast"></i> <span>Discreet Delivery</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-shield-halved"></i> <span>No Commitment</span></div>
+            </div>
+        </div>
+
+        <!-- Desktop: Static centered -->
+        <div class="hidden md:flex items-center justify-center gap-x-8 px-6">
+            <div class="flex items-center gap-x-1.5"><i class="fa-solid fa-lock"></i> <span>100% Private</span></div>
+            <div class="flex items-center gap-x-1.5"><i class="fa-solid fa-user-md"></i> <span>Licensed Clinicians</span></div>
+            <div class="flex items-center gap-x-1.5"><i class="fa-solid fa-truck-fast"></i> <span>Discreet Delivery</span></div>
+            <div class="flex items-center gap-x-1.5"><i class="fa-solid fa-shield-halved"></i> <span>No Commitment</span></div>
+        </div>
     </div>
+
+    <style>
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 22s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee:hover .marquee-content {
+            animation-play-state: paused; /* nice touch */
+        }
+    </style>
 
     <!-- NAVBAR -->
     <nav class="bg-white/95 backdrop-blur sticky top-0 z-50 border-b shadow-sm">
@@ -78,6 +144,436 @@
                 <img src="logo.png" alt="Keyra" class="h-9 w-auto" style="filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.3));">
                 <span class="logo-font text-3xl font-semibold tracking-[-1px] text-[#0f766e]">Keyra</span>
             </div>
+            
+            <div class="hidden lg:flex items-center gap-x-8 text-sm font-medium text-gray-700">
+                <a href="#how" class="hover:text-[#22d3ee]">How it works</a>
+                <a href="#peptides" class="hover:text-[#22d3ee]">Peptides</a>
+                <a href="#foryou" class="hover:text-[#22d3ee]">For you</a>
+                <a href="#difference" class="hover:text-[#22d3ee]">Difference</a>
+                <a href="#faq" class="hover:text-[#22d3ee]">FAQ</a>
+            </div>
+            
+            <button onclick="openQuizModal()" 
+                    class="hidden lg:flex px-8 py-3 text-sm font-semibold rounded-3xl bg-[#22d3ee] hover:bg-[#0f766e] text-white items-center gap-x-2">
+                <i class="fa-solid fa-rocket"></i> Take 60-second quiz
+            </button>
+            
+            <!-- Mobile hamburger - pure CSS three-line icon (always works, standard menu look) -->
+            <button onclick="toggleMobileMenu()" 
+                    class="lg:hidden w-11 h-11 flex flex-col justify-center items-center gap-y-[5px] text-[#0f766e] active:opacity-70"
+                    aria-label="Open navigation menu">
+                <span class="block w-6 h-[2.5px] bg-current rounded-full"></span>
+                <span class="block w-6 h-[2.5px] bg-current rounded-full"></span>
+                <span class="block w-6 h-[2.5px] bg-current rounded-full"></span>
+            </button>
+        </div>
+        
+        <!-- IMPROVED SOLID MOBILE MENU - high contrast, clear background -->
+        <div id="mobileMenu" class="hidden lg:hidden fixed inset-0 bg-white z-[999] pt-16 shadow-2xl">
+            <div class="px-6 py-8 bg-white">
+                <!-- Prominent header -->
+                <div class="flex justify-between items-center mb-8 pb-6 border-b border-gray-100">
+                    <div class="flex items-center gap-x-3">
+                        <img src="logo.png" alt="Keyra" class="h-8 w-auto">
+                        <span class="logo-font text-3xl font-semibold text-[#0f766e]">Keyra</span>
+                    </div>
+                    <button onclick="toggleMobileMenu()" 
+                            class="w-12 h-12 flex items-center justify-center text-4xl text-gray-500 hover:text-[#0f766e] hover:bg-gray-100 rounded-full">
+                        ×
+                    </button>
+                </div>
+                
+                <!-- High-contrast menu links -->
+                <div class="flex flex-col text-[22px] font-semibold text-gray-900">
+                    <a href="#how" onclick="toggleMobileMenu()" 
+                       class="py-6 px-5 hover:bg-gray-50 active:bg-gray-100 rounded-3xl flex items-center gap-x-3 border-l-4 border-transparent hover:border-[#22d3ee]">
+                        How it works
+                    </a>
+                    <a href="#peptides" onclick="toggleMobileMenu()" 
+                       class="py-6 px-5 hover:bg-gray-50 active:bg-gray-100 rounded-3xl flex items-center gap-x-3 border-l-4 border-transparent hover:border-[#22d3ee]">
+                        Peptides
+                    </a>
+                    <a href="#foryou" onclick="toggleMobileMenu()" 
+                       class="py-6 px-5 hover:bg-gray-50 active:bg-gray-100 rounded-3xl flex items-center gap-x-3 border-l-4 border-transparent hover:border-[#22d3ee]">
+                        For you
+                    </a>
+                    <a href="#difference" onclick="toggleMobileMenu()" 
+                       class="py-6 px-5 hover:bg-gray-50 active:bg-gray-100 rounded-3xl flex items-center gap-x-3 border-l-4 border-transparent hover:border-[#22d3ee]">
+                        Difference
+                    </a>
+                    <a href="#faq" onclick="toggleMobileMenu()" 
+                       class="py-6 px-5 hover:bg-gray-50 active:bg-gray-100 rounded-3xl flex items-center gap-x-3 border-l-4 border-transparent hover:border-[#22d3ee]">
+                        FAQ
+                    </a>
+                </div>
+                
+                <!-- Strong CTA -->
+                <button onclick="openQuizModal();toggleMobileMenu()" 
+                        class="mt-10 w-full py-6 bg-[#22d3ee] hover:bg-[#0f766e] text-white text-2xl font-semibold rounded-3xl flex items-center justify-center gap-x-3 shadow-lg active:scale-[0.985]">
+                    <i class="fa-solid fa-rocket"></i> 
+                    <span>Take 60-second quiz</span>
+                </button>
+                
+                <p class="text-center text-xs text-gray-400 mt-6">No commitment • Limited spots</p>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO - Full foreground image with optimized text placement -->
+    <header class="relative overflow-hidden bg-white">
+        <img src="wellness5.jpg" alt="Smiling woman in modern kitchen holding green smoothie - Keyra wellness lifestyle" class="hero-image w-full">
+        
+        <div class="absolute inset-0 bg-gradient-to-b from-[#0f766e]/30 via-[#0f766e]/10 to-transparent">
+            <div class="max-w-screen-2xl mx-auto px-6 pt-10 md:pt-12">
+                <div class="max-w-xl">
+                    <div class="inline-flex items-center gap-x-2 bg-white/90 backdrop-blur-md border border-white/60 rounded-3xl px-4 py-1 text-xs mb-4 shadow-sm">
+                        <span class="relative flex h-2 w-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#22d3ee]"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#22d3ee]"></span>
+                        </span>
+                        <span class="font-medium text-[#0f766e]">Limited spots available</span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-[-2.5px] leading-none text-white drop-shadow-xl">
+                        Wellness,<br><span class="text-[#22d3ee]">delivered.</span>
+                    </h1>
+                    
+                    <p class="mt-5 text-xl md:text-2xl text-white/95 max-w-md drop-shadow">Simple, private, clinician-reviewed peptide support for everyday energy, recovery, and balance.</p>
+                    
+                    <div class="mt-7 flex flex-wrap gap-4">
+                        <button onclick="openQuizModal()" 
+                                class="px-10 py-5 md:py-6 text-xl md:text-2xl font-semibold bg-white text-[#0f766e] rounded-3xl flex items-center gap-x-3 shadow-xl hover:shadow-2xl hover:scale-[1.02]">
+                            Take the 60-second quiz
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PEPTIDES SECTION -->
+    <section id="peptides" class="section-padding px-6 bg-white">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="uppercase text-xs font-semibold tracking-widest text-[#22d3ee]">Examples of peptides</span>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Popular options we help coordinate</h2>
+                <p class="mt-4 text-gray-600 max-w-md mx-auto">Here are a few examples of the high-quality peptides people commonly explore for energy, recovery, and balance.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden premium-shadow card-hover">
+                    <img src="PT-141 • Kisspeptin.png" alt="PT-141 and Kisspeptin 5mg vials" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl">PT-141 • Kisspeptin</h3>
+                        <p class="text-sm text-gray-500 mt-1">Often explored for confidence and vitality</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden premium-shadow card-hover">
+                    <img src="1295.png" alt="CJC-1295 and Ipamorelin 5mg vials" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl">CJC-1295 • Ipamorelin</h3>
+                        <p class="text-sm text-gray-500 mt-1">Commonly associated with energy and recovery</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden premium-shadow card-hover">
+                    <img src="157:500.png" alt="BPC-157 and TB-500 5mg vials" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-semibold text-xl">BPC-157 • TB-500</h3>
+                        <p class="text-sm text-gray-500 mt-1">Often explored for healing and recovery support</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-center text-xs text-gray-500 mt-10">Keyra coordinates access through licensed clinicians and authorized compounding pharmacies. We do not prescribe or dispense medication.</p>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="section-padding px-6 bg-[#f8fffe]">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="uppercase text-xs font-semibold tracking-widest text-[#22d3ee]">Your wellness journey</span>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Wellness in four ridiculously easy steps</h2>
+                <p class="mt-4 text-gray-600 max-w-md mx-auto">No appointments. No hassle. Just 60 seconds to get started.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-4 gap-8">
+                <div class="text-center bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
+                    <div class="mx-auto w-16 h-16 bg-[#22d3ee]/10 rounded-2xl flex items-center justify-center text-5xl font-semibold text-[#22d3ee]">1</div>
+                    <h3 class="mt-6 font-semibold text-2xl">Take the 60-second quiz</h3>
+                    <p class="mt-4 text-gray-600">Answer a few quick questions about your goals. Takes less time than your morning coffee.</p>
+                </div>
+                <div class="text-center bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
+                    <div class="mx-auto w-16 h-16 bg-[#22d3ee]/10 rounded-2xl flex items-center justify-center text-5xl font-semibold text-[#22d3ee]">2</div>
+                    <h3 class="mt-6 font-semibold text-2xl">Clinician review</h3>
+                    <p class="mt-4 text-gray-600">Our partner licensed clinicians privately review your answers. No video calls needed.</p>
+                </div>
+                <div class="text-center bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
+                    <div class="mx-auto w-16 h-16 bg-[#22d3ee]/10 rounded-2xl flex items-center justify-center text-5xl font-semibold text-[#22d3ee]">3</div>
+                    <h3 class="mt-6 font-semibold text-2xl">Approved &amp; prepared</h3>
+                    <p class="mt-4 text-gray-600">If you qualify, your request goes to an authorized compounding pharmacy.</p>
+                </div>
+                <div class="text-center bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
+                    <div class="mx-auto w-16 h-16 bg-[#22d3ee]/10 rounded-2xl flex items-center justify-center text-5xl font-semibold text-[#22d3ee]">4</div>
+                    <h3 class="mt-6 font-semibold text-2xl">Delivered to your door</h3>
+                    <p class="mt-4 text-gray-600">Discreet package with everything you need arrives at your door. Self-administered.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOR YOU -->
+    <section id="foryou" class="section-padding px-6 bg-white">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="uppercase text-xs font-semibold tracking-widest text-[#22d3ee]">Designed for real life</span>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Practical support for everyday people</h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- TODO: Replace with your cropped lifestyle images (full person visible, natural light style like wellness5.jpg) -->
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
+                    <img src="energy.jpg" alt="Person with steady energy and vitality" class="w-full h-48 object-cover rounded-2xl mb-6">
+                    <h3 class="text-2xl font-semibold">Steady energy</h3>
+                    <p class="mt-3 text-gray-600">Feel sharper and more present through your busy days — without the afternoon crash.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
+                    <img src="recovery.jpg" alt="Person recovering and active" class="w-full h-48 object-cover rounded-2xl mb-6">
+                    <h3 class="text-2xl font-semibold">Faster recovery</h3>
+                    <p class="mt-3 text-gray-600">Bounce back quicker from stress, workouts, or long days.</p>
+                </div>
+                <div class="bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
+                    <img src="balance.jpg" alt="Person feeling balanced and calm" class="w-full h-48 object-cover rounded-2xl mb-6">
+                    <h3 class="text-2xl font-semibold">Quiet confidence</h3>
+                    <p class="mt-3 text-gray-600">Feel more like yourself — balanced, capable, and in control.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFFERENCE -->
+    <section id="difference" class="section-padding px-6 bg-[#f8fffe]">
+        <div class="max-w-screen-2xl mx-auto">
+            <h2 class="text-4xl lg:text-5xl font-semibold text-center text-[#0f766e]">Why regular people choose Keyra</h2>
+            <div class="mt-12 grid lg:grid-cols-2 gap-8">
+                <div class="flex gap-6 bg-white border border-gray-100 rounded-3xl p-8 premium-shadow card-hover">
+                    <span class="text-5xl text-[#22d3ee] font-light">01</span>
+                    <div>
+                        <strong class="text-2xl">Radical simplicity</strong>
+                        <p class="mt-3 text-gray-600">One 60-second quiz. No subscriptions. No hassle. No hidden fees.</p>
+                    </div>
+                </div>
+                <div class="flex gap-6 bg-white border border-gray-100 rounded-3xl p-8 premium-shadow card-hover">
+                    <span class="text-5xl text-[#22d3ee] font-light">02</span>
+                    <div>
+                        <strong class="text-2xl">Built for everyday balance</strong>
+                        <p class="mt-3 text-gray-600">No extreme protocols — just practical, gentle support for real life.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="mx-6 mt-12 mb-12 bg-gradient-to-r from-[#0f766e] to-[#22d3ee] text-white rounded-3xl p-12 text-center premium-shadow">
+        <h2 class="text-4xl font-semibold">Ready to be one of the first?</h2>
+        <p class="mt-4 text-xl">We’re opening access to a limited number of people right now.<br>No commitment — just the chance to experience Keyra.</p>
+        <button onclick="openQuizModal()" class="mt-10 px-14 py-6 text-2xl bg-white text-[#0f766e] font-semibold rounded-3xl flex items-center justify-center mx-auto gap-x-3 hover:scale-[1.02]">
+            Take the 60-second quiz
+            <i class="fa-solid fa-arrow-right"></i>
+        </button>
+    </div>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-padding px-6 bg-white">
+        <div class="max-w-screen-2xl mx-auto">
+            <h2 class="text-4xl font-semibold text-center mb-12">Frequently asked questions</h2>
+            <div class="max-w-2xl mx-auto space-y-6">
+                <details class="bg-white border border-gray-100 rounded-3xl px-8 py-6 group">
+                    <summary class="font-medium text-lg cursor-pointer flex justify-between items-center">Is there any commitment or subscription?</summary>
+                    <p class="mt-6 text-gray-600">No. You only pay for what you order. No recurring charges, ever.</p>
+                </details>
+                <details class="bg-white border border-gray-100 rounded-3xl px-8 py-6 group">
+                    <summary class="font-medium text-lg cursor-pointer flex justify-between items-center">Who reviews my quiz?</summary>
+                    <p class="mt-6 text-gray-600">Licensed clinicians through our trusted white-label partner. Everything stays completely private and secure.</p>
+                </details>
+                <details class="bg-white border border-gray-100 rounded-3xl px-8 py-6 group">
+                    <summary class="font-medium text-lg cursor-pointer flex justify-between items-center">Do you ship the peptides?</summary>
+                    <p class="mt-6 text-gray-600">Keyra coordinates access. We do not prescribe, dispense, or compound medication ourselves.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0f766e] text-white pt-16 pb-12 px-6">
+        <div class="max-w-screen-2xl mx-auto">
+            <img src="logo.png" alt="Keyra" class="h-9 brightness-0 invert mb-6">
+            <p class="text-[#22d3ee] text-2xl">Wellness, delivered.</p>
+            <p class="mt-8 max-w-md text-sm opacity-75">Keyra coordinates access to independent licensed clinicians. We do not prescribe, dispense, or compound medication.</p>
+            <p class="text-xs opacity-50 mt-12">© 2026 Keyra Health. All rights reserved. This site is for informational purposes only and does not constitute medical advice.</p>
+        </div>
+    </footer>
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white border-t shadow-2xl z-[999] lg:hidden px-6 py-4">
+        <button onclick="openQuizModal()" class="w-full py-5 bg-[#22d3ee] text-white rounded-3xl text-xl font-semibold flex items-center justify-center gap-x-3">
+            <i class="fa-solid fa-rocket"></i> Take 60-second quiz
+        </button>
+    </div>
+
+    <!-- QUIZ MODAL -->
+    <div id="quizModal" onclick="if(event.target.id === 'quizModal') closeQuizModal()" 
+         class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="bg-white rounded-3xl w-full max-w-lg overflow-hidden">
+            <div class="px-8 py-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-semibold text-[#0f766e]">Quick interest quiz</h3>
+                <button onclick="closeQuizModal()" class="text-4xl text-gray-300 hover:text-gray-500">×</button>
+            </div>
+            <div class="p-8">
+                <p class="text-sm text-gray-500 mb-8">This short quiz helps us understand interest. No personal health information is collected at this stage.</p>
+                
+                <div id="step1">
+                    <p class="font-medium mb-6">What are you most curious about?</p>
+                    <div class="space-y-4">
+                        <button onclick="selectOption(this)" class="w-full text-left px-6 py-5 border border-gray-200 rounded-2xl hover:border-[#22d3ee]">Steady daily energy</button>
+                        <button onclick="selectOption(this)" class="w-full text-left px-6 py-5 border border-gray-200 rounded-2xl hover:border-[#22d3ee]">Faster recovery</button>
+                        <button onclick="selectOption(this)" class="w-full text-left px-6 py-5 border border-gray-200 rounded-2xl hover:border-[#22d3ee]">Overall balance</button>
+                    </div>
+                    <button onclick="nextStep()" class="mt-10 w-full py-6 bg-[#0f766e] text-white rounded-3xl font-semibold">Continue</button>
+                </div>
+                
+                <div id="step2" class="hidden">
+                    <p class="font-medium mb-6">Which age group are you in?</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <button onclick="selectOption(this)" class="px-6 py-5 border border-gray-200 rounded-2xl hover:border-[#22d3ee]">30–39</button>
+                        <button onclick="selectOption(this)" class="px-6 py-5 border border-gray-200 rounded-2xl hover:border-[#22d3ee]">40–49</button>
+                        <button onclick="selectOption(this)" class="px-6 py-5 border border-gray-200 rounded-2xl hover:border-[#22d3ee]">50–59</button>
+                        <button onclick="selectOption(this)" class="px-6 py-5 border border-gray-200 rounded-2xl hover:border-[#22d3ee]">60+</button>
+                    </div>
+                    <div class="flex gap-4 mt-10">
+                        <button onclick="prevStep()" class="flex-1 py-6 border border-gray-300 rounded-3xl font-medium">← Back</button>
+                        <button onclick="submitQuiz()" class="flex-1 py-6 bg-[#0f766e] text-white rounded-3xl font-semibold">Submit interest</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Tailwind script
+        function initTailwind() {
+            document.documentElement.style.setProperty('--accent', '#22d3ee');
+        }
+        
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+        
+        function openQuizModal() {
+            const modal = document.getElementById('quizModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            resetQuiz();
+            
+            // Trap focus
+            setTimeout(() => {
+                const firstBtn = modal.querySelector('button');
+                if (firstBtn) firstBtn.focus();
+            }, 100);
+        }
+        
+        function closeQuizModal() {
+            const modal = document.getElementById('quizModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+        
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('quizModal');
+                if (!modal.classList.contains('hidden')) {
+                    closeQuizModal();
+                }
+                const mobileMenu = document.getElementById('mobileMenu');
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        });
+        
+        function selectOption(el) {
+            const parent = el.parentElement;
+            parent.querySelectorAll('button').forEach(b => {
+                b.classList.remove('border-[#22d3ee]', 'bg-[#22d3ee]/5');
+            });
+            el.classList.add('border-[#22d3ee]', 'bg-[#22d3ee]/5');
+        }
+        
+        function nextStep() {
+            document.getElementById('step1').classList.add('hidden');
+            document.getElementById('step2').classList.remove('hidden');
+        }
+        
+        function prevStep() {
+            document.getElementById('step2').classList.add('hidden');
+            document.getElementById('step1').classList.remove('hidden');
+        }
+        
+        function resetQuiz() {
+            document.getElementById('step1').classList.remove('hidden');
+            document.getElementById('step2').classList.add('hidden');
+            
+            // Clear selections
+            document.querySelectorAll('#quizModal button').forEach(btn => {
+                btn.classList.remove('border-[#22d3ee]', 'bg-[#22d3ee]/5');
+            });
+        }
+        
+        function submitQuiz() {
+            const modalContent = document.querySelector('#quizModal > div');
+            modalContent.innerHTML = `
+                <div class="p-12 text-center">
+                    <div class="mx-auto w-16 h-16 bg-[#22d3ee]/10 rounded-full flex items-center justify-center mb-6">
+                        <i class="fa-solid fa-check text-4xl text-[#22d3ee]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-[#0f766e]">Thank you!</h3>
+                    <p class="mt-4 text-gray-600">Your interest has been noted. We’re opening access to a limited number of people right now and will reach out if you qualify for early access.</p>
+                    <p class="mt-2 text-sm text-gray-500">No commitment required.</p>
+                    <button onclick="closeQuizModal()" class="mt-8 px-10 py-4 bg-[#0f766e] text-white rounded-3xl font-semibold">Close</button>
+                </div>
+            `;
+        }
+        
+        // Initialize
+        window.onload = function() {
+            initTailwind();
+            
+            // Add fade-in animation to sections
+            const sections = document.querySelectorAll('section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            console.log('%c✅ Keyra landing page v3 loaded — reviewed & improved for premium feel, mobile UX, and accessibility', 'color:#22d3ee; font-weight:600');
+        }
+    </script>
+</body>
+</html>            </div>
             
             <div class="hidden lg:flex items-center gap-x-8 text-sm font-medium text-gray-700">
                 <a href="#how" class="hover:text-[#22d3ee]">How it works</a>
