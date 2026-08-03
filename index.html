@@ -341,45 +341,84 @@
                 <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Practical support for everyday people</h2>
             </div>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- TODO: Replace with your cropped lifestyle images (full person visible, natural light style like wellness5.jpg) -->
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
-                    <img src="energy.jpg" alt="Person with steady energy and vitality" class="w-full h-48 object-cover rounded-2xl mb-6">
-                    <h3 class="text-2xl font-semibold">Steady energy</h3>
-                    <p class="mt-3 text-gray-600">Feel sharper and more present through your busy days — without the afternoon crash.</p>
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 premium-shadow card-hover">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="energy.jpg" alt="Person with steady energy and vitality" class="w-full h-full object-cover" style="object-position: center 20%;">
+                    </div>
+                    <div class="p-7">
+                        <h3 class="text-2xl font-semibold">Steady energy</h3>
+                        <p class="mt-3 text-gray-600">Feel sharper and more present through your busy days — without the afternoon crash.</p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
-                    <img src="recovery.jpg" alt="Person recovering and active" class="w-full h-48 object-cover rounded-2xl mb-6">
-                    <h3 class="text-2xl font-semibold">Faster recovery</h3>
-                    <p class="mt-3 text-gray-600">Bounce back quicker from stress, workouts, or long days.</p>
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 premium-shadow card-hover">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="recovery.jpg" alt="Person recovering and active" class="w-full h-full object-cover" style="object-position: center 40%;">
+                    </div>
+                    <div class="p-7">
+                        <h3 class="text-2xl font-semibold">Faster recovery</h3>
+                        <p class="mt-3 text-gray-600">Bounce back quicker from stress, workouts, or long days.</p>
+                    </div>
                 </div>
-                <div class="bg-white rounded-3xl p-8 border border-gray-100 premium-shadow card-hover">
-                    <img src="balance.jpg" alt="Person feeling balanced and calm" class="w-full h-48 object-cover rounded-2xl mb-6">
-                    <h3 class="text-2xl font-semibold">Quiet confidence</h3>
-                    <p class="mt-3 text-gray-600">Feel more like yourself — balanced, capable, and in control.</p>
+                <div class="bg-white rounded-3xl overflow-hidden border border-gray-100 premium-shadow card-hover">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="balance.jpg" alt="Person feeling balanced and calm" class="w-full h-full object-cover" style="object-position: center 25%;">
+                    </div>
+                    <div class="p-7">
+                        <h3 class="text-2xl font-semibold">Quiet confidence</h3>
+                        <p class="mt-3 text-gray-600">Feel more like yourself — balanced, capable, and in control.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DIFFERENCE -->
+    <!-- VISUAL BREAK -->
+    <section class="relative h-64 md:h-80 lg:h-96 overflow-hidden">
+        <img src="section-break.jpg" alt="Soft morning light — Keyra wellness" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-[#0f766e]/40 flex items-center justify-center">
+            <p class="text-white text-2xl md:text-4xl font-semibold tracking-tight text-center px-6">Wellness, without the complexity.</p>
+        </div>
+    </section>
+
+    <!-- DIFFERENCE / TRUST -->
     <section id="difference" class="section-padding px-6 bg-[#f8fffe]">
         <div class="max-w-screen-2xl mx-auto">
-            <h2 class="text-4xl lg:text-5xl font-semibold text-center text-[#0f766e]">Why regular people choose Keyra</h2>
-            <div class="mt-12 grid lg:grid-cols-2 gap-8">
-                <div class="flex gap-6 bg-white border border-gray-100 rounded-3xl p-8 premium-shadow card-hover">
-                    <span class="text-5xl text-[#22d3ee] font-light">01</span>
-                    <div>
-                        <strong class="text-2xl">Radical simplicity</strong>
-                        <p class="mt-3 text-gray-600">One 60-second quiz. No subscriptions. No hassle. No hidden fees.</p>
-                    </div>
+            <div class="text-center mb-12">
+                <p class="text-sm font-semibold tracking-widest uppercase text-[#22d3ee] mb-3">Why Keyra</p>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e]">Built for how healthcare should feel</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">After 20+ years working inside healthcare systems, one thing became clear: access shouldn’t be this complicated. Keyra exists to make clinician-reviewed peptide support simple, private, and actually designed for real life.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white border border-gray-100 rounded-3xl p-7 premium-shadow card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center text-[#22d3ee] text-xl font-semibold mb-5">1</div>
+                    <h3 class="font-semibold text-xl text-gray-900">Radical simplicity</h3>
+                    <p class="mt-3 text-gray-600 text-[15px] leading-relaxed">Short quiz. Clinician review. Delivered if appropriate. No runaround.</p>
                 </div>
-                <div class="flex gap-6 bg-white border border-gray-100 rounded-3xl p-8 premium-shadow card-hover">
-                    <span class="text-5xl text-[#22d3ee] font-light">02</span>
-                    <div>
-                        <strong class="text-2xl">Built for everyday balance</strong>
-                        <p class="mt-3 text-gray-600">No extreme protocols — just practical, gentle support for real life.</p>
-                    </div>
+                <div class="bg-white border border-gray-100 rounded-3xl p-7 premium-shadow card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center text-[#22d3ee] text-xl font-semibold mb-5">2</div>
+                    <h3 class="font-semibold text-xl text-gray-900">No over-commitment</h3>
+                    <p class="mt-3 text-gray-600 text-[15px] leading-relaxed">No memberships. No automatic enrollments. No hidden fees. Ever.</p>
                 </div>
+                <div class="bg-white border border-gray-100 rounded-3xl p-7 premium-shadow card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center text-[#22d3ee] text-xl font-semibold mb-5">3</div>
+                    <h3 class="font-semibold text-xl text-gray-900">Private by design</h3>
+                    <p class="mt-3 text-gray-600 text-[15px] leading-relaxed">Discreet process. Protected information. Support that stays between you and licensed clinicians.</p>
+                </div>
+                <div class="bg-white border border-gray-100 rounded-3xl p-7 premium-shadow card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-[#22d3ee]/10 flex items-center justify-center text-[#22d3ee] text-xl font-semibold mb-5">4</div>
+                    <h3 class="font-semibold text-xl text-gray-900">Clear roles</h3>
+                    <p class="mt-3 text-gray-600 text-[15px] leading-relaxed">We coordinate. Independent clinicians review. Authorized pharmacies fulfill. No confusion.</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="/about.html" class="inline-flex items-center gap-2 text-[#0f766e] font-medium hover:text-[#22d3ee] transition">
+                    Read the full story
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -399,20 +438,68 @@
     <!-- FAQ -->
     <section id="faq" class="section-padding px-6 bg-white">
         <div class="max-w-screen-2xl mx-auto">
-            <h2 class="text-4xl font-semibold text-center mb-12">Frequently asked questions</h2>
-            <div class="max-w-2xl mx-auto space-y-6">
-                <details class="bg-white border border-gray-100 rounded-3xl px-8 py-6 group">
-                    <summary class="font-medium text-lg cursor-pointer flex justify-between items-center">Is there any commitment or subscription?</summary>
-                    <p class="mt-6 text-gray-600">No. You only pay for what you order. No recurring charges, ever.</p>
+            <h2 class="text-4xl font-semibold text-center mb-3">Frequently asked questions</h2>
+            <p class="text-center text-gray-500 mb-10 max-w-xl mx-auto">Clear answers to the most common questions.</p>
+            
+            <div class="max-w-2xl mx-auto space-y-3">
+                
+                <details class="bg-white border border-gray-100 rounded-2xl px-6 py-5 group shadow-sm">
+                    <summary class="font-medium text-[17px] cursor-pointer flex justify-between items-center gap-4 list-none">
+                        What exactly does Keyra do?
+                        <span class="text-gray-400 text-2xl leading-none transition-transform duration-200 group-open:rotate-45 flex-shrink-0">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed pr-6">Keyra is a coordination platform. We make it simple for everyday people to request clinician-reviewed peptide support for energy, recovery, and balance. We partner with independent licensed clinicians and authorized compounding pharmacies. Keyra itself does not prescribe, diagnose, or dispense medication.</p>
                 </details>
-                <details class="bg-white border border-gray-100 rounded-3xl px-8 py-6 group">
-                    <summary class="font-medium text-lg cursor-pointer flex justify-between items-center">Who reviews my quiz?</summary>
-                    <p class="mt-6 text-gray-600">Licensed clinicians through our trusted white-label partner. Everything stays completely private and secure.</p>
+
+                <details class="bg-white border border-gray-100 rounded-2xl px-6 py-5 group shadow-sm">
+                    <summary class="font-medium text-[17px] cursor-pointer flex justify-between items-center gap-4 list-none">
+                        How does the process work?
+                        <span class="text-gray-400 text-2xl leading-none transition-transform duration-200 group-open:rotate-45 flex-shrink-0">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed pr-6">1) You complete a short interest quiz. 2) When limited access opens, a licensed clinician through our partner network can review your information. 3) If appropriate, your request is sent to an authorized compounding pharmacy. 4) A discreet package is delivered to your door.</p>
                 </details>
-                <details class="bg-white border border-gray-100 rounded-3xl px-8 py-6 group">
-                    <summary class="font-medium text-lg cursor-pointer flex justify-between items-center">Do you ship the peptides?</summary>
-                    <p class="mt-6 text-gray-600">Keyra coordinates access. We do not prescribe, dispense, or compound medication ourselves.</p>
+
+                <details class="bg-white border border-gray-100 rounded-2xl px-6 py-5 group shadow-sm">
+                    <summary class="font-medium text-[17px] cursor-pointer flex justify-between items-center gap-4 list-none">
+                        Is there any commitment or subscription?
+                        <span class="text-gray-400 text-2xl leading-none transition-transform duration-200 group-open:rotate-45 flex-shrink-0">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed pr-6">No. Joining the early-access list creates no obligation. When access is available, you only pay for what you choose to order. There are no memberships or automatic renewals.</p>
                 </details>
+
+                <details class="bg-white border border-gray-100 rounded-2xl px-6 py-5 group shadow-sm">
+                    <summary class="font-medium text-[17px] cursor-pointer flex justify-between items-center gap-4 list-none">
+                        Do you prescribe or ship the peptides yourselves?
+                        <span class="text-gray-400 text-2xl leading-none transition-transform duration-200 group-open:rotate-45 flex-shrink-0">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed pr-6">No. Keyra coordinates access only. We do not prescribe, dispense, or compound any medication. Prescribing decisions belong to independent licensed clinicians. Fulfillment is handled by authorized compounding pharmacies.</p>
+                </details>
+
+                <details class="bg-white border border-gray-100 rounded-2xl px-6 py-5 group shadow-sm">
+                    <summary class="font-medium text-[17px] cursor-pointer flex justify-between items-center gap-4 list-none">
+                        How private is my information?
+                        <span class="text-gray-400 text-2xl leading-none transition-transform duration-200 group-open:rotate-45 flex-shrink-0">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed pr-6">We take privacy seriously. The interest form collects only high-level information (no detailed medical history). We do not sell your personal information. See our full <a href="/privacy.html" class="text-[#0f766e] underline">Privacy Policy</a>.</p>
+                </details>
+
+                <details class="bg-white border border-gray-100 rounded-2xl px-6 py-5 group shadow-sm">
+                    <summary class="font-medium text-[17px] cursor-pointer flex justify-between items-center gap-4 list-none">
+                        What happens after I submit the quiz?
+                        <span class="text-gray-400 text-2xl leading-none transition-transform duration-200 group-open:rotate-45 flex-shrink-0">+</span>
+                    </summary>
+                    <p class="mt-4 text-gray-600 leading-relaxed pr-6">You will be added to our early-access interest list. We will only contact you when limited spots become available or if we need a quick follow-up. No automatic enrollment and no commitment.</p>
+                </details>
+
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="/faq.html" class="inline-flex items-center gap-2 text-[#0f766e] font-medium hover:text-[#22d3ee] transition">
+                    View all frequently asked questions
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -426,6 +513,8 @@
             <p class="mt-6 max-w-md text-sm opacity-75">Keyra coordinates access to independent licensed clinicians. We do not prescribe, dispense, or compound medication.</p>
             
             <div class="mt-8 flex flex-wrap gap-6 text-sm opacity-80">
+                <a href="/about.html" class="hover:text-[#22d3ee]">About</a>
+                <a href="/faq.html" class="hover:text-[#22d3ee]">FAQ</a>
                 <a href="/privacy.html" class="hover:text-[#22d3ee]">Privacy Policy</a>
                 <a href="/terms.html" class="hover:text-[#22d3ee]">Terms of Use</a>
                 <a href="/disclaimer.html" class="hover:text-[#22d3ee]">Disclaimer</a>
