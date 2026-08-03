@@ -3,137 +3,459 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Keyra | Unlocking Wellness</title>
+    <meta name="description" content="Join the Keyra early-access list. Take a short interest quiz for clinician-reviewed peptide support.">
+    <title>Keyra | Early Access Interest Quiz</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
         
+        :root {
+            --deep-teal: #0f766e;
+            --vibrant-cyan: #22d3ee;
+        }
+        
+        * { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
         body { font-family: 'Inter', system-ui, sans-serif; }
-        .heading-font { font-family: 'Space Grotesk', sans-serif; }
+        .logo-font { font-family: 'Space Grotesk', sans-serif; }
         
-        .hero-bg { background: linear-gradient(135deg, #ffffff 50%, #f0fdfa 100%); }
-        
-        .wellness-scene {
-            border-radius: 2.75rem;
+        .progress-bar {
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 9999px;
             overflow: hidden;
-            box-shadow: 0 25px 60px -15px rgb(17 63 68 / 0.12);
+        }
+        .progress-fill {
+            height: 100%;
+            background: #22d3ee;
+            border-radius: 9999px;
+            transition: width 0.35s ease;
         }
         
-        /* Improved logo sizing */
-        .nav-logo {
-            height: 78px;           /* Good balanced size for most screens */
-            width: auto;
-            max-width: 100%;
-            object-fit: contain;
+        .option-btn {
+            transition: all 0.15s ease;
         }
-        
-        /* Mobile specific - make logo a bit larger on small screens */
-        @media (max-width: 768px) {
-            .nav-logo {
-                height: 68px;
-            }
-        }
-        
-        .vial-image {
-            height: 140px;
-            width: auto;
-            object-fit: contain;
-            margin: 0 auto 24px;
+        .option-btn.selected {
+            border-color: #22d3ee;
+            background-color: rgba(34, 211, 238, 0.08);
         }
     </style>
 </head>
-<body class="bg-white text-[#113F44]">
+<body class="bg-[#f8fffe] min-h-screen">
 
-    <!-- NAVBAR - Better balanced on mobile -->
-    <nav class="bg-white border-b border-[#113F44]/10 sticky top-0 z-50">
-        <div class="max-w-screen-2xl mx-auto px-6 py-5">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <!-- Logo -->
-                <div class="flex justify-center md:justify-start">
-                    <img src="horizontal Logo.png" alt="Keyra" class="nav-logo">
-                </div>
-                
-                <!-- Desktop menu + button -->
-                <div class="flex items-center justify-between md:justify-end w-full md:w-auto gap-8">
-                    <div class="hidden md:flex items-center gap-x-10 font-medium text-[#113F44]">
-                        <a href="#how" class="hover:text-[#00E8D8]">How it Works</a>
-                        <a href="#peptides" class="hover:text-[#00E8D8]">Peptides</a>
-                        <a href="#difference" class="hover:text-[#00E8D8]">Why Keyra</a>
-                    </div>
-                    
-                    <button onclick="openQuizModal()" 
-                            class="px-8 py-4 bg-[#00E8D8] hover:bg-[#00D9C8] text-[#113F44] font-semibold rounded-3xl shadow-lg shadow-[#00E8D8]/30 flex items-center gap-x-3 text-base whitespace-nowrap">
-                        Take the Quiz <span class="text-xl">→</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <!-- HERO - Main graphic slightly more centered -->
-    <header class="hero-bg pt-12 pb-20 md:pb-28">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="grid md:grid-cols-12 gap-12 items-center">
-                <!-- Left: Text -->
-                <div class="md:col-span-5">
-                    <div class="inline-flex items-center gap-2 bg-white px-5 py-2 rounded-3xl border border-[#00E8D8]/30 text-sm font-medium mb-8">
-                        <div class="w-2 h-2 bg-[#00E8D8] rounded-full animate-pulse"></div>
-                        Clinician-reviewed • Delivered to your door
-                    </div>
-                    
-                    <h1 class="heading-font text-6xl md:text-7xl leading-[1.05] font-medium tracking-tighter">
-                        Wellness,<br>delivered.
-                    </h1>
-                    
-                    <p class="mt-6 text-2xl text-[#113F44]/80">
-                        Quick. Private. Simple.<br>
-                        Clinician-coordinated peptide support delivered to your door.
-                    </p>
-                    
-                    <div class="flex flex-wrap gap-4 mt-12">
-                        <button onclick="openQuizModal()" 
-                                class="px-12 py-7 bg-[#00E8D8] hover:bg-[#00D9C8] text-[#113F44] font-semibold text-2xl rounded-3xl shadow-xl shadow-[#00E8D8]/30 flex items-center gap-x-4">
-                            Am I a good fit?
-                            <span class="text-4xl">→</span>
-                        </button>
-                        
-                        <a href="#peptides" 
-                           class="px-10 py-7 border-2 border-[#113F44] hover:bg-[#113F44] hover:text-white font-medium rounded-3xl text-xl flex items-center">
-                            Explore peptides
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Right: Wellness Image -->
-                <div class="md:col-span-7 relative flex justify-center md:justify-end">
-                    <div class="wellness-scene max-w-[640px]">
-                        <img src="wellness5.jpg" 
-                             alt="Woman smiling in kitchen with blender and green smoothie"
-                             class="w-full h-auto">
-                    </div>
-                </div>
-            </div>
+    <!-- Minimal Header -->
+    <header class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-2xl mx-auto px-5 py-4 flex items-center justify-between">
+            <a href="/">
+                <img src="logo-tight.png" alt="Keyra – Unlocking Wellness" class="h-10 md:h-12 w-auto">
+            </a>
+            <a href="/" class="text-sm text-gray-500 hover:text-[#0f766e]">← Back to Keyra</a>
         </div>
     </header>
 
-    <!-- The rest of your sections (ticker, How It Works, Peptides, CTA) remain the same as the previous version with your vial images. -->
+    <!-- Main Quiz Container -->
+    <main class="max-w-xl mx-auto px-5 py-10 md:py-14">
+        
+        <!-- Progress -->
+        <div class="mb-8">
+            <div class="flex justify-between text-xs text-gray-500 mb-2">
+                <span id="stepLabel">Step 1 of 7</span>
+                <span id="percentLabel">14%</span>
+            </div>
+            <div class="progress-bar">
+                <div id="progressFill" class="progress-fill" style="width: 14%"></div>
+            </div>
+        </div>
+
+        <!-- Quiz Card -->
+        <div class="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 md:p-10">
+            
+            <!-- INTRO (Step 0) -->
+            <div id="step-0" class="quiz-step">
+                <h1 class="text-2xl md:text-3xl font-semibold text-[#0f766e] leading-tight">Join the early-access list</h1>
+                <p class="mt-4 text-gray-600 leading-relaxed">
+                    This short quiz helps us understand interest. It takes less than a minute.
+                    No personal health information is collected.
+                </p>
+                <p class="mt-3 text-sm text-gray-500">
+                    Keyra coordinates access to independent licensed clinicians. We do not prescribe, diagnose, or dispense medication.
+                </p>
+                <button onclick="goToStep(1)" class="mt-8 w-full py-4 bg-[#0f766e] hover:bg-[#0d9488] text-white rounded-2xl font-semibold text-lg">
+                    Start the quiz
+                </button>
+            </div>
+
+            <!-- Q1: Goal -->
+            <div id="step-1" class="quiz-step hidden">
+                <p class="text-sm font-medium text-[#22d3ee] mb-2">Question 1 of 6</p>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">What are you most interested in exploring right now?</h2>
+                <div class="space-y-3">
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Steady daily energy" onclick="selectOption(this, 'goal')">
+                        Steady daily energy
+                    </button>
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Better recovery" onclick="selectOption(this, 'goal')">
+                        Better recovery after activity or stress
+                    </button>
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Overall balance" onclick="selectOption(this, 'goal')">
+                        Overall balance & wellness
+                    </button>
+                </div>
+                <div class="mt-8 flex gap-3">
+                    <button onclick="goToStep(0)" class="flex-1 py-3.5 border border-gray-300 rounded-2xl font-medium text-gray-700">Back</button>
+                    <button id="next-1" onclick="goToStep(2)" disabled class="flex-1 py-3.5 bg-[#0f766e] text-white rounded-2xl font-semibold opacity-40 cursor-not-allowed">Continue</button>
+                </div>
+            </div>
+
+            <!-- Q2: Current Experience -->
+            <div id="step-2" class="quiz-step hidden">
+                <p class="text-sm font-medium text-[#22d3ee] mb-2">Question 2 of 6</p>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">How would you describe your current energy and recovery?</h2>
+                <div class="space-y-3">
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Pretty consistent" onclick="selectOption(this, 'energyLevel')">
+                        Pretty consistent most days
+                    </button>
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Comes and goes" onclick="selectOption(this, 'energyLevel')">
+                        It comes and goes
+                    </button>
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Often run down" onclick="selectOption(this, 'energyLevel')">
+                        I often feel run down or slow to recover
+                    </button>
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Want more consistency" onclick="selectOption(this, 'energyLevel')">
+                        I’d like more consistency
+                    </button>
+                </div>
+                <div class="mt-8 flex gap-3">
+                    <button onclick="goToStep(1)" class="flex-1 py-3.5 border border-gray-300 rounded-2xl font-medium text-gray-700">Back</button>
+                    <button id="next-2" onclick="goToStep(3)" disabled class="flex-1 py-3.5 bg-[#0f766e] text-white rounded-2xl font-semibold opacity-40 cursor-not-allowed">Continue</button>
+                </div>
+            </div>
+
+            <!-- Q3: Prior Experience -->
+            <div id="step-3" class="quiz-step hidden">
+                <p class="text-sm font-medium text-[#22d3ee] mb-2">Question 3 of 6</p>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Have you ever explored peptides or similar wellness approaches before?</h2>
+                <div class="space-y-3">
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Yes, I’ve tried them" onclick="selectOption(this, 'priorExperience')">
+                        Yes, I’ve tried them
+                    </button>
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Researched only" onclick="selectOption(this, 'priorExperience')">
+                        I’ve researched but never tried
+                    </button>
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="This is new" onclick="selectOption(this, 'priorExperience')">
+                        This is new to me
+                    </button>
+                </div>
+                <div class="mt-8 flex gap-3">
+                    <button onclick="goToStep(2)" class="flex-1 py-3.5 border border-gray-300 rounded-2xl font-medium text-gray-700">Back</button>
+                    <button id="next-3" onclick="goToStep(4)" disabled class="flex-1 py-3.5 bg-[#0f766e] text-white rounded-2xl font-semibold opacity-40 cursor-not-allowed">Continue</button>
+                </div>
+            </div>
+
+            <!-- Q4: Timeline -->
+            <div id="step-4" class="quiz-step hidden">
+                <p class="text-sm font-medium text-[#22d3ee] mb-2">Question 4 of 6</p>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">What’s your preferred timeline for exploring this?</h2>
+                <div class="space-y-3">
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="Just curious" onclick="selectOption(this, 'timeline')">
+                        I’m just curious for now
+                    </button>
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="1–2 months" onclick="selectOption(this, 'timeline')">
+                        Within the next 1–2 months
+                    </button>
+                    <button class="option-btn w-full text-left px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="As soon as available" onclick="selectOption(this, 'timeline')">
+                        As soon as access is available
+                    </button>
+                </div>
+                <div class="mt-8 flex gap-3">
+                    <button onclick="goToStep(3)" class="flex-1 py-3.5 border border-gray-300 rounded-2xl font-medium text-gray-700">Back</button>
+                    <button id="next-4" onclick="goToStep(5)" disabled class="flex-1 py-3.5 bg-[#0f766e] text-white rounded-2xl font-semibold opacity-40 cursor-not-allowed">Continue</button>
+                </div>
+            </div>
+
+            <!-- Q5: Age Range -->
+            <div id="step-5" class="quiz-step hidden">
+                <p class="text-sm font-medium text-[#22d3ee] mb-2">Question 5 of 6</p>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">Which age range best describes you?</h2>
+                <div class="grid grid-cols-2 gap-3">
+                    <button class="option-btn px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="30–39" onclick="selectOption(this, 'ageRange')">30–39</button>
+                    <button class="option-btn px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="40–49" onclick="selectOption(this, 'ageRange')">40–49</button>
+                    <button class="option-btn px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="50–59" onclick="selectOption(this, 'ageRange')">50–59</button>
+                    <button class="option-btn px-5 py-4 border-2 border-gray-200 rounded-2xl hover:border-[#22d3ee]" data-value="60+" onclick="selectOption(this, 'ageRange')">60+</button>
+                </div>
+                <div class="mt-8 flex gap-3">
+                    <button onclick="goToStep(4)" class="flex-1 py-3.5 border border-gray-300 rounded-2xl font-medium text-gray-700">Back</button>
+                    <button id="next-5" onclick="goToStep(6)" disabled class="flex-1 py-3.5 bg-[#0f766e] text-white rounded-2xl font-semibold opacity-40 cursor-not-allowed">Continue</button>
+                </div>
+            </div>
+
+            <!-- Q6: State -->
+            <div id="step-6" class="quiz-step hidden">
+                <p class="text-sm font-medium text-[#22d3ee] mb-2">Question 6 of 6</p>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-6">What state do you currently live in?</h2>
+                <select id="stateSelect" class="w-full px-5 py-4 border-2 border-gray-200 rounded-2xl text-lg focus:border-[#22d3ee] focus:outline-none bg-white">
+                    <option value="">Select your state</option>
+                    <option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option><option value="CA">California</option><option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="FL">Florida</option>
+                    <option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option><option value="WY">Wyoming</option>
+                    <option value="DC">Washington D.C.</option>
+                </select>
+                <div class="mt-8 flex gap-3">
+                    <button onclick="goToStep(5)" class="flex-1 py-3.5 border border-gray-300 rounded-2xl font-medium text-gray-700">Back</button>
+                    <button id="next-6" onclick="goToStep(7)" disabled class="flex-1 py-3.5 bg-[#0f766e] text-white rounded-2xl font-semibold opacity-40 cursor-not-allowed">Continue</button>
+                </div>
+            </div>
+
+            <!-- CONTACT CAPTURE (Step 7) -->
+            <div id="step-7" class="quiz-step hidden">
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">Almost done</h2>
+                <p class="text-gray-600 mb-6">We’ll only use this information to notify you when limited access opens.</p>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">First name <span class="text-red-500">*</span></label>
+                        <input type="text" id="firstName" required
+                               class="w-full px-5 py-3.5 border-2 border-gray-200 rounded-2xl focus:border-[#22d3ee] focus:outline-none text-lg"
+                               placeholder="Your first name">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="email" required
+                               class="w-full px-5 py-3.5 border-2 border-gray-200 rounded-2xl focus:border-[#22d3ee] focus:outline-none text-lg"
+                               placeholder="you@email.com">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1.5">Phone <span class="text-gray-400">(optional)</span></label>
+                        <input type="tel" id="phone"
+                               class="w-full px-5 py-3.5 border-2 border-gray-200 rounded-2xl focus:border-[#22d3ee] focus:outline-none text-lg"
+                               placeholder="(555) 555-5555">
+                    </div>
+                </div>
+
+                <p class="mt-5 text-xs text-gray-500 leading-relaxed">
+                    By submitting, you agree to be contacted about early access. No personal health information is collected. 
+                    Keyra coordinates access to independent licensed clinicians and does not prescribe or dispense medication.
+                </p>
+
+                <div class="mt-8 flex gap-3">
+                    <button onclick="goToStep(6)" class="flex-1 py-3.5 border border-gray-300 rounded-2xl font-medium text-gray-700">Back</button>
+                    <button onclick="submitQuiz()" id="submitBtn" class="flex-1 py-3.5 bg-[#22d3ee] hover:bg-[#0f766e] text-white rounded-2xl font-semibold">
+                        Submit interest
+                    </button>
+                </div>
+            </div>
+
+            <!-- RESULTS / THANK YOU (Step 8) -->
+            <div id="step-8" class="quiz-step hidden text-center py-4">
+                <div class="mx-auto w-16 h-16 bg-[#22d3ee]/15 rounded-full flex items-center justify-center mb-6">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-[#0f766e]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
+                </div>
+                <h2 class="text-2xl md:text-3xl font-semibold text-[#0f766e]">You’re on the early-access list</h2>
+                <p class="mt-4 text-gray-600 text-lg" id="thankYouName">Thanks for your interest.</p>
+                <p class="mt-4 text-gray-600 leading-relaxed max-w-md mx-auto">
+                    We’ve saved your preferences. When we open limited access, a licensed clinician through our partner network will review requests. 
+                    There is no commitment and no automatic enrollment.
+                </p>
+                <p class="mt-3 text-sm text-gray-500">
+                    We’ll only reach out when spots become available or if we need a quick follow-up.
+                </p>
+                <p class="mt-6 text-xs text-gray-400">
+                    Keyra coordinates access — we do not prescribe, diagnose, or dispense medication.
+                </p>
+                <a href="/" class="inline-block mt-8 px-10 py-4 bg-[#0f766e] text-white rounded-2xl font-semibold hover:bg-[#0d9488]">
+                    Return to Keyra
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Small disclaimer under the card -->
+        <p class="mt-6 text-center text-xs text-gray-400 max-w-md mx-auto">
+            This form collects interest only. Completing it does not create a patient relationship or guarantee access.
+        </p>
+    </main>
+
+    <!-- Minimal Footer -->
+    <footer class="border-t bg-white mt-12">
+        <div class="max-w-2xl mx-auto px-5 py-8 text-center text-sm text-gray-500">
+            <div class="flex justify-center gap-6 mb-4">
+                <a href="/privacy.html" class="hover:text-[#0f766e]">Privacy Policy</a>
+                <a href="/terms.html" class="hover:text-[#0f766e]">Terms of Use</a>
+                <a href="/disclaimer.html" class="hover:text-[#0f766e]">Disclaimer</a>
+            </div>
+            <p>© 2026 Keyra Health. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
-        function openQuizModal() {
-            document.getElementById('quiz-modal').classList.remove('hidden');
-            document.getElementById('quiz-modal').style.display = 'flex';
+        // ========== STATE ==========
+        const answers = {
+            goal: '',
+            energyLevel: '',
+            priorExperience: '',
+            timeline: '',
+            ageRange: '',
+            state: '',
+            firstName: '',
+            email: '',
+            phone: ''
+        };
+
+        let currentStep = 0;
+        const totalSteps = 7; // 0=intro, 1-6=questions, 7=contact → 8=thank you
+
+        // ========== GOOGLE APPS SCRIPT URL ==========
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxOJQUvJxAXq0j19l-ot5reLeRNXE0fr-mVQnYmk21i4axHFAyEfmu5MacofNy34_G/exec';
+
+        // ========== NAVIGATION ==========
+        function goToStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.quiz-step').forEach(el => el.classList.add('hidden'));
+            
+            // Show target step
+            const target = document.getElementById('step-' + step);
+            if (target) target.classList.remove('hidden');
+            
+            currentStep = step;
+            updateProgress();
+            
+            // Special handling for state select
+            if (step === 6) {
+                const select = document.getElementById('stateSelect');
+                select.onchange = function() {
+                    answers.state = this.value;
+                    const nextBtn = document.getElementById('next-6');
+                    if (this.value) {
+                        nextBtn.disabled = false;
+                        nextBtn.classList.remove('opacity-40', 'cursor-not-allowed');
+                    } else {
+                        nextBtn.disabled = true;
+                        nextBtn.classList.add('opacity-40', 'cursor-not-allowed');
+                    }
+                };
+            }
+            
+            // Scroll to top of card
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        
-        function closeQuizModal() {
-            const modal = document.getElementById('quiz-modal');
-            modal.style.display = 'none';
-            modal.classList.add('hidden');
+
+        function updateProgress() {
+            // Progress calculation: steps 0-7 map to roughly 0% → 100%
+            const percent = Math.round((currentStep / totalSteps) * 100);
+            document.getElementById('progressFill').style.width = percent + '%';
+            
+            if (currentStep === 0) {
+                document.getElementById('stepLabel').textContent = 'Getting started';
+                document.getElementById('percentLabel').textContent = '0%';
+            } else if (currentStep <= 6) {
+                document.getElementById('stepLabel').textContent = `Step ${currentStep} of 7`;
+                document.getElementById('percentLabel').textContent = percent + '%';
+            } else if (currentStep === 7) {
+                document.getElementById('stepLabel').textContent = 'Final step';
+                document.getElementById('percentLabel').textContent = '90%';
+            } else {
+                document.getElementById('stepLabel').textContent = 'Complete';
+                document.getElementById('percentLabel').textContent = '100%';
+            }
         }
-        
-        function fakeSubmit() {
-            alert("✅ Thank you! Your interest has been recorded.\n\nWe will reach out shortly with next steps.");
-            closeQuizModal();
+
+        // ========== OPTION SELECTION ==========
+        function selectOption(btn, field) {
+            // Clear previous selection in this group
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+            
+            // Mark this one
+            btn.classList.add('selected');
+            answers[field] = btn.getAttribute('data-value');
+            
+            // Enable the Continue button for this step
+            const nextBtn = document.getElementById('next-' + currentStep);
+            if (nextBtn) {
+                nextBtn.disabled = false;
+                nextBtn.classList.remove('opacity-40', 'cursor-not-allowed');
+            }
         }
+
+        // ========== SUBMIT ==========
+        async function submitQuiz() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+
+            if (!firstName || !email) {
+                alert('Please enter your first name and email.');
+                return;
+            }
+
+            // Basic email check
+            if (!email.includes('@') || !email.includes('.')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            answers.firstName = firstName;
+            answers.email = email;
+            answers.phone = phone;
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting…';
+
+            const payload = {
+                firstName: answers.firstName,
+                email: answers.email,
+                phone: answers.phone,
+                state: answers.state,
+                goal: answers.goal,
+                energyLevel: answers.energyLevel,
+                priorExperience: answers.priorExperience,
+                timeline: answers.timeline,
+                ageRange: answers.ageRange,
+                source: 'get-started'
+            };
+
+            try {
+                // Google Apps Script often requires no-cors or specific handling
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // required for Google Apps Script from browser
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                // Show thank-you screen
+                document.getElementById('thankYouName').textContent = 
+                    `Thanks, ${answers.firstName}. We’ve saved your preferences.`;
+                goToStep(8);
+
+            } catch (err) {
+                console.error(err);
+                alert('Something went wrong. Please try again in a moment.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit interest';
+            }
+        }
+
+        // Start at intro
+        goToStep(0);
     </script>
 </body>
 </html>
