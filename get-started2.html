@@ -140,10 +140,10 @@
     <!-- NAVBAR -->
     <nav class="bg-white/95 backdrop-blur sticky top-0 z-50 border-b shadow-sm">
         <div class="max-w-screen-2xl mx-auto px-6 py-5 flex justify-between items-center">
-            <div class="flex items-center gap-x-3">
-                <img src="logo.png" alt="Keyra" class="h-9 w-auto" style="filter: drop-shadow(0 0 10px rgba(34, 211, 238, 0.3));">
-                <span class="logo-font text-3xl font-semibold tracking-[-1px] text-[#0f766e]">Keyra</span>
-            </div>
+            <!-- Full Keyra logo (Unlocking Wellness) - more prominent -->
+            <a href="/" class="flex items-center">
+                <img src="logo.png" alt="Keyra – Unlocking Wellness" class="h-10 md:h-12 w-auto" style="filter: drop-shadow(0 0 8px rgba(34, 211, 238, 0.25));">
+            </a>
             
             <div class="hidden lg:flex items-center gap-x-8 text-sm font-medium text-gray-700">
                 <a href="#how" class="hover:text-[#22d3ee]">How it works</a>
@@ -176,10 +176,8 @@
             <div class="px-6 py-8 bg-white">
                 <!-- Prominent header -->
                 <div class="flex justify-between items-center mb-8 pb-6 border-b border-gray-100">
-                    <div class="flex items-center gap-x-3">
-                        <img src="logo.png" alt="Keyra" class="h-8 w-auto">
-                        <span class="logo-font text-3xl font-semibold text-[#0f766e]">Keyra</span>
-                    </div>
+                    <!-- Full Keyra logo -->
+                    <img src="logo.png" alt="Keyra – Unlocking Wellness" class="h-10 w-auto">
                     <button onclick="toggleMobileMenu()" 
                             class="w-12 h-12 flex items-center justify-center text-4xl text-gray-500 hover:text-[#0f766e] hover:bg-gray-100 rounded-full">
                         ×
@@ -423,10 +421,11 @@
     <!-- FOOTER -->
     <footer class="bg-[#0f766e] text-white pt-16 pb-12 px-6">
         <div class="max-w-screen-2xl mx-auto">
-            <img src="logo.png" alt="Keyra" class="h-9 brightness-0 invert mb-6">
-            <p class="text-[#22d3ee] text-2xl">Wellness, delivered.</p>
-            <p class="mt-8 max-w-md text-sm opacity-75">Keyra coordinates access to independent licensed clinicians. We do not prescribe, dispense, or compound medication.</p>
-            <p class="text-xs opacity-50 mt-12">© 2026 Keyra Health. All rights reserved. This site is for informational purposes only and does not constitute medical advice.</p>
+            <!-- Full Keyra logo (Unlocking Wellness) - inverted for dark background -->
+            <img src="logo.png" alt="Keyra – Unlocking Wellness" class="h-14 md:h-16 w-auto brightness-0 invert mb-6">
+            <p class="text-[#22d3ee] text-xl md:text-2xl font-medium">Wellness, delivered.</p>
+            <p class="mt-6 max-w-md text-sm opacity-75">Keyra coordinates access to independent licensed clinicians. We do not prescribe, dispense, or compound medication.</p>
+            <p class="text-xs opacity-50 mt-10">© 2026 Keyra Health. All rights reserved. This site is for informational purposes only and does not constitute medical advice.</p>
         </div>
     </footer>
 
