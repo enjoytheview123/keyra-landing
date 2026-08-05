@@ -282,9 +282,9 @@
     <section id="peptides" class="section-padding px-6 bg-white">
         <div class="max-w-screen-2xl mx-auto">
             <div class="text-center mb-12">
-                <span class="uppercase text-xs font-semibold tracking-widest text-[#22d3ee]">In development</span>
+                <span class="uppercase text-xs font-semibold tracking-widest text-[#22d3ee]">Help shape what we offer</span>
                 <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Peptides we are exploring</h2>
-                <p class="mt-4 text-gray-600 max-w-xl mx-auto">Examples of peptides people commonly explore for energy, recovery, and balance. These are not currently available through Keyra — final options depend on clinician review and our pharmacy partners.</p>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">We’re in early access and building our formulary carefully with clinical partners. The examples below are areas of interest — not products you can order today. Your input helps us decide what to prioritize.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -315,30 +315,44 @@
             
             <div class="mt-10 max-w-2xl mx-auto">
                 <p class="text-sm text-gray-600 bg-[#f8fffe] border border-[#e0f2f1] rounded-2xl px-6 py-4 text-center">
-                    <span class="font-medium text-[#0f766e]">Transparency note:</span> We are evaluating which peptides we can responsibly coordinate access to. The options above are areas of interest — not a live catalog.
+                    <span class="font-medium text-[#0f766e]">Why this matters:</span> We’re evaluating which peptides we can responsibly coordinate through licensed clinicians and compounding pharmacies. Nothing above is a live catalog or a promise of availability.
                 </p>
                 <p class="text-xs text-gray-500 mt-4 text-center">Keyra coordinates access through licensed clinicians and authorized compounding pharmacies. We do not prescribe or dispense medication.</p>
 
-                <!-- Suggest a peptide -->
+                <!-- Suggest interest -->
                 <div class="mt-10 border border-gray-100 rounded-3xl p-6 md:p-8 bg-white premium-shadow">
-                    <h3 class="text-xl font-semibold text-[#0f766e] text-center">Looking for something else?</h3>
-                    <p class="mt-2 text-sm text-gray-600 text-center">Tell us a peptide you’re interested in. We’ll use this to guide what we explore next — no commitment.</p>
+                    <h3 class="text-xl font-semibold text-[#0f766e] text-center">Help us decide what to offer first</h3>
+                    <p class="mt-2 text-sm text-gray-600 text-center">Tell us a specific peptide and/or the category you care about most. No commitment — this just helps shape early access.</p>
                     <form id="peptideSuggestForm" class="mt-6 space-y-4" onsubmit="return submitPeptideSuggestion(event)">
                         <div>
-                            <label for="suggestPeptide" class="block text-sm font-medium text-gray-700 mb-1">Peptide name</label>
-                            <input type="text" id="suggestPeptide" name="peptide" required placeholder="e.g. Sermorelin, GHK-Cu…"
+                            <label for="suggestPeptide" class="block text-sm font-medium text-gray-700 mb-1">Peptide name <span class="text-gray-400 font-normal">(optional)</span></label>
+                            <input type="text" id="suggestPeptide" name="peptide" placeholder="e.g. Sermorelin, GHK-Cu…"
                                 class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent">
                         </div>
                         <div>
+                            <label for="suggestCategory" class="block text-sm font-medium text-gray-700 mb-1">Category of interest <span class="text-gray-400 font-normal">(optional)</span></label>
+                            <select id="suggestCategory" name="category"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent bg-white">
+                                <option value="">Select a category…</option>
+                                <option value="Energy">Energy</option>
+                                <option value="Recovery / healing">Recovery / healing</option>
+                                <option value="Balance / overall wellness">Balance / overall wellness</option>
+                                <option value="Confidence / vitality">Confidence / vitality</option>
+                                <option value="Sleep / stress">Sleep / stress</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
                             <label for="suggestEmail" class="block text-sm font-medium text-gray-700 mb-1">Email <span class="text-gray-400 font-normal">(optional)</span></label>
-                            <input type="email" id="suggestEmail" name="email" placeholder="So we can follow up if relevant"
+                            <input type="email" id="suggestEmail" name="email" placeholder="Only if you want a follow-up"
                                 class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent">
                         </div>
                         <button type="submit" id="suggestBtn"
                             class="w-full py-3.5 bg-[#0f766e] hover:bg-[#0d9488] text-white rounded-2xl font-semibold transition">
-                            Submit interest
+                            Share my interest
                         </button>
-                        <p id="suggestThanks" class="hidden text-center text-sm text-[#0f766e] font-medium pt-1">Thanks — we’ve noted your interest.</p>
+                        <p id="suggestThanks" class="hidden text-center text-sm text-[#0f766e] font-medium pt-1">Thanks — your input helps shape what we offer.</p>
+                        <p class="text-xs text-gray-500 text-center">We never sell your information. Email is optional.</p>
                     </form>
                 </div>
             </div>
@@ -713,25 +727,29 @@
         async function submitPeptideSuggestion(e) {
             e.preventDefault();
             const peptide = document.getElementById('suggestPeptide').value.trim();
+            const category = document.getElementById('suggestCategory').value.trim();
             const email = document.getElementById('suggestEmail').value.trim();
             const btn = document.getElementById('suggestBtn');
             const thanks = document.getElementById('suggestThanks');
 
-            if (!peptide) return;
+            if (!peptide && !category) {
+                alert('Please enter a peptide name or choose a category.');
+                return;
+            }
 
             btn.disabled = true;
             btn.textContent = 'Submitting…';
 
-            // Same JSON pattern as the working quiz
+            // Same JSON pattern as the working quiz (peptide name stored; category in goal field for one-sheet sorting)
             const payload = {
                 source: 'peptide-suggestion',
-                peptide: peptide,
+                peptide: peptide || category,
                 email: email || '',
-                firstName: '',
+                firstName: category || '',
                 phone: '',
                 state: '',
-                goal: '',
-                energyLevel: '',
+                goal: category || '',
+                energyLevel: peptide || '',
                 priorExperience: '',
                 timeline: '',
                 ageRange: ''
@@ -747,9 +765,10 @@
             } catch (err) {}
 
             document.getElementById('suggestPeptide').value = '';
+            document.getElementById('suggestCategory').value = '';
             document.getElementById('suggestEmail').value = '';
             btn.disabled = false;
-            btn.textContent = 'Submit interest';
+            btn.textContent = 'Share my interest';
             thanks.classList.remove('hidden');
             setTimeout(() => thanks.classList.add('hidden'), 5000);
             return false;

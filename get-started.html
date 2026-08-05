@@ -240,7 +240,12 @@
             <!-- CONTACT CAPTURE (Step 7) -->
             <div id="step-7" class="quiz-step hidden">
                 <h2 class="text-xl md:text-2xl font-semibold text-gray-900 mb-2">Almost done</h2>
-                <p class="text-gray-600 mb-6">We’ll only use this information to notify you when limited access opens.</p>
+                <p class="text-gray-600 mb-4">Leave your contact details only if you’d like us to reach out when limited access opens.</p>
+
+                <div class="mb-6 rounded-2xl bg-[#f8fffe] border border-[#e0f2f1] px-4 py-3 text-sm text-gray-600 leading-relaxed">
+                    <p class="font-medium text-[#0f766e] mb-1">Your information stays private</p>
+                    <p>We will never sell your information. We don’t share it with marketers. No personal health details are collected at this stage — only what you choose to share below.</p>
+                </div>
                 
                 <div class="space-y-4">
                     <div>
@@ -261,11 +266,20 @@
                                class="w-full px-5 py-3.5 border-2 border-gray-200 rounded-2xl focus:border-[#22d3ee] focus:outline-none text-lg"
                                placeholder="(555) 555-5555">
                     </div>
+                    <label class="flex items-start gap-3 cursor-pointer select-none pt-1">
+                        <input type="checkbox" id="contactOptIn" checked
+                               class="mt-1 w-5 h-5 rounded border-gray-300 text-[#0f766e] focus:ring-[#22d3ee]">
+                        <span class="text-sm text-gray-700 leading-snug">
+                            It’s okay to contact me when Keyra access is available.
+                            <span class="block text-gray-500 mt-0.5">You can unsubscribe anytime. We won’t spam you.</span>
+                        </span>
+                    </label>
                 </div>
 
                 <p class="mt-5 text-xs text-gray-500 leading-relaxed">
-                    By submitting, you agree to be contacted about early access. No personal health information is collected. 
+                    No personal health information is collected at this stage.
                     Keyra coordinates access to independent licensed clinicians and does not prescribe or dispense medication.
+                    See our <a href="/privacy.html" class="underline hover:text-[#0f766e]">Privacy Policy</a>.
                 </p>
 
                 <div class="mt-8 flex gap-3">
@@ -427,6 +441,8 @@
                 return;
             }
 
+            const contactOptIn = document.getElementById('contactOptIn').checked;
+
             answers.firstName = firstName;
             answers.email = email;
             answers.phone = phone;
@@ -445,7 +461,7 @@
                 priorExperience: answers.priorExperience,
                 timeline: answers.timeline,
                 ageRange: answers.ageRange,
-                source: 'get-started'
+                source: contactOptIn ? 'get-started|contact-ok' : 'get-started|no-contact'
             };
 
             try {
