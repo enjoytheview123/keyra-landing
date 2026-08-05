@@ -108,32 +108,26 @@
 </head>
 <body class="tail-container bg-white">
 
-    <!-- TRUST BAR - auto-scrolling ticker on mobile, static on desktop -->
-    <div class="bg-[#0f766e] text-white text-xs py-3 overflow-hidden">
-        
-        <!-- Mobile: Auto-scrolling ticker -->
-        <div class="md:hidden marquee">
-            <div class="marquee-content flex items-center gap-x-8">
-                <!-- Original items -->
-                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-lock"></i> <span>100% Private</span></div>
-                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-user-md"></i> <span>Licensed Clinicians</span></div>
-                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-truck-fast"></i> <span>Discreet Delivery</span></div>
-                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-shield-halved"></i> <span>No Commitment</span></div>
-                
-                <!-- Duplicate for seamless loop -->
-                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-lock"></i> <span>100% Private</span></div>
-                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-user-md"></i> <span>Licensed Clinicians</span></div>
-                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-truck-fast"></i> <span>Discreet Delivery</span></div>
-                <div class="flex-shrink-0 flex items-center gap-x-1.5"><i class="fa-solid fa-shield-halved"></i> <span>No Commitment</span></div>
+    <!-- TRUST BAR - continuous scrolling ticker (all screen sizes) -->
+    <div class="bg-[#0f766e] text-white text-xs sm:text-sm py-3 overflow-hidden">
+        <div class="marquee">
+            <div class="marquee-content">
+                <!-- Set A -->
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-lock"></i> <span>100% Private</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-user-md"></i> <span>Licensed Clinicians</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-truck-fast"></i> <span>Discreet Delivery</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-shield-halved"></i> <span>No Commitment</span></div>
+                <!-- Set B (duplicate for seamless loop) -->
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-lock"></i> <span>100% Private</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-user-md"></i> <span>Licensed Clinicians</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-truck-fast"></i> <span>Discreet Delivery</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-shield-halved"></i> <span>No Commitment</span></div>
+                <!-- Set C (extra spacing / smoother loop on wide screens) -->
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-lock"></i> <span>100% Private</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-user-md"></i> <span>Licensed Clinicians</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-truck-fast"></i> <span>Discreet Delivery</span></div>
+                <div class="flex-shrink-0 flex items-center gap-x-2 px-6 sm:px-10"><i class="fa-solid fa-shield-halved"></i> <span>No Commitment</span></div>
             </div>
-        </div>
-
-        <!-- Desktop: Static centered -->
-        <div class="hidden md:flex items-center justify-center gap-x-8 px-6">
-            <div class="flex items-center gap-x-1.5"><i class="fa-solid fa-lock"></i> <span>100% Private</span></div>
-            <div class="flex items-center gap-x-1.5"><i class="fa-solid fa-user-md"></i> <span>Licensed Clinicians</span></div>
-            <div class="flex items-center gap-x-1.5"><i class="fa-solid fa-truck-fast"></i> <span>Discreet Delivery</span></div>
-            <div class="flex items-center gap-x-1.5"><i class="fa-solid fa-shield-halved"></i> <span>No Commitment</span></div>
         </div>
     </div>
 
@@ -141,31 +135,36 @@
         .marquee {
             overflow: hidden;
             white-space: nowrap;
+            width: 100%;
         }
         .marquee-content {
             display: inline-flex;
-            animation: marquee 22s linear infinite;
+            align-items: center;
+            animation: marquee 28s linear infinite;
+            will-change: transform;
         }
         @keyframes marquee {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(-33.333%); }
         }
         .marquee:hover .marquee-content {
-            animation-play-state: paused; /* nice touch */
+            animation-play-state: paused;
         }
     </style>
 
     <!-- NAVBAR -->
     <nav class="bg-white/95 backdrop-blur sticky top-0 z-50 border-b shadow-sm">
-        <div class="max-w-screen-2xl mx-auto px-6 py-5 flex justify-between items-center">
+        <div class="max-w-screen-2xl mx-auto px-6 py-5 flex items-center gap-4">
             <!-- Full Keyra logo (Unlocking Wellness) - transparent & prominent -->
-            <a href="/" class="flex items-center">
+            <a href="/" class="flex items-center flex-shrink-0">
                 <img src="logo-tight.png" alt="Keyra – Unlocking Wellness" class="h-12 md:h-16 w-auto">
             </a>
             
-            <div class="hidden lg:flex items-center gap-x-8 text-sm font-medium text-gray-700">
+            <!-- Centered nav links -->
+            <div class="hidden lg:flex flex-1 items-center justify-center gap-x-10 text-sm font-medium text-gray-700">
                 <a href="#how" class="hover:text-[#22d3ee]">How it works</a>
-                <a href="#options" class="hover:text-[#22d3ee]">Options</a>
+                <a href="#options" class="hover:text-[#22d3ee]">Peptides</a>
+                <a href="#help-shape" class="hover:text-[#22d3ee]">Help shape what we offer</a>
                 <a href="#difference" class="hover:text-[#22d3ee]">Difference</a>
                 <a href="#faq" class="hover:text-[#22d3ee]">FAQ</a>
             </div>
@@ -180,7 +179,7 @@
             
             <!-- Mobile hamburger - pure CSS three-line icon (always works, standard menu look) -->
             <button onclick="toggleMobileMenu()" 
-                    class="lg:hidden w-11 h-11 flex flex-col justify-center items-center gap-y-[5px] text-[#0f766e] active:opacity-70"
+                    class="lg:hidden ml-auto w-11 h-11 flex flex-col justify-center items-center gap-y-[5px] text-[#0f766e] active:opacity-70"
                     aria-label="Open navigation menu">
                 <span class="block w-6 h-[2.5px] bg-current rounded-full"></span>
                 <span class="block w-6 h-[2.5px] bg-current rounded-full"></span>
@@ -210,6 +209,10 @@
                     <a href="#options" onclick="toggleMobileMenu()" 
                        class="py-6 px-5 hover:bg-gray-50 active:bg-gray-100 rounded-3xl flex items-center gap-x-3 border-l-4 border-transparent hover:border-[#22d3ee]">
                         Peptides
+                    </a>
+                    <a href="#help-shape" onclick="toggleMobileMenu()" 
+                       class="py-6 px-5 hover:bg-gray-50 active:bg-gray-100 rounded-3xl flex items-center gap-x-3 border-l-4 border-transparent hover:border-[#22d3ee]">
+                        Help shape what we offer
                     </a>
                     <a href="#difference" onclick="toggleMobileMenu()" 
                        class="py-6 px-5 hover:bg-gray-50 active:bg-gray-100 rounded-3xl flex items-center gap-x-3 border-l-4 border-transparent hover:border-[#22d3ee]">
@@ -278,8 +281,8 @@
         <div class="max-w-screen-2xl mx-auto">
             <div class="text-center mb-12">
                 <span class="uppercase text-xs font-semibold tracking-widest text-[#22d3ee]">Help shape what we offer</span>
-                <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Options we are exploring</h2>
-                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">We’re in early access and building carefully with clinical partners. The examples below are areas of interest — not products you can order today. Your input helps us decide what to prioritize.</p>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Peptides we are exploring</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Keyra is focused on clinician-reviewed <strong class="font-medium text-gray-800">peptide support</strong> for everyday energy, recovery, and balance. We’re in early access and building our formulary carefully with clinical partners. The examples below are areas of interest — not products you can order today. Your input helps us decide which peptides to prioritize.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -310,22 +313,22 @@
             
             <div class="mt-10 max-w-2xl mx-auto">
                 <p class="text-sm text-gray-600 bg-[#f8fffe] border border-[#e0f2f1] rounded-2xl px-6 py-4 text-center">
-                    <span class="font-medium text-[#0f766e]">Why this matters:</span> We’re evaluating which options we can responsibly coordinate through licensed clinicians and authorized pharmacies. Nothing above is a live catalog or a promise of specific products.
+                    <span class="font-medium text-[#0f766e]">Why this matters:</span> We’re evaluating which <strong class="font-medium">peptides</strong> we can responsibly coordinate through licensed clinicians and authorized compounding pharmacies. Nothing above is a live catalog or a promise of availability.
                 </p>
                 <p class="text-xs text-gray-500 mt-4 text-center">Keyra coordinates access through licensed clinicians and authorized compounding pharmacies. We do not prescribe or dispense medication.</p>
 
-                <!-- Suggest interest -->
-                <div class="mt-10 border border-gray-100 rounded-3xl p-6 md:p-8 bg-white premium-shadow">
-                    <h3 class="text-xl font-semibold text-[#0f766e] text-center">Help us decide what to offer first</h3>
-                    <p class="mt-2 text-sm text-gray-600 text-center">Tell us a specific option and/or the category you care about most. No commitment — this just helps shape early access.</p>
+                <!-- Suggest peptide interest -->
+                <div id="help-shape" class="mt-10 border border-gray-100 rounded-3xl p-6 md:p-8 bg-white premium-shadow scroll-mt-28">
+                    <h3 class="text-xl font-semibold text-[#0f766e] text-center">Help us decide which peptides to offer first</h3>
+                    <p class="mt-2 text-sm text-gray-600 text-center">We’re exploring peptide support for energy, recovery, and balance. Tell us which peptides you’re most interested in — or the category that matters most. No commitment; this helps shape early access.</p>
                     <form id="peptideSuggestForm" class="mt-6 space-y-4" onsubmit="return submitPeptideSuggestion(event)">
                         <div>
-                            <label for="suggestPeptide" class="block text-sm font-medium text-gray-700 mb-1">Specific option you are interested in <span class="text-gray-400 font-normal">(optional)</span></label>
-                            <input type="text" id="suggestPeptide" name="peptide" placeholder="e.g. a specific name or approach you’re researching"
+                            <label for="suggestPeptide" class="block text-sm font-medium text-gray-700 mb-1">Which peptide are you most interested in? <span class="text-gray-400 font-normal">(optional)</span></label>
+                            <input type="text" id="suggestPeptide" name="peptide" placeholder="e.g. BPC-157, CJC-1295, Sermorelin, GHK-Cu…"
                                 class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent">
                         </div>
                         <div>
-                            <label for="suggestCategory" class="block text-sm font-medium text-gray-700 mb-1">Category of interest <span class="text-gray-400 font-normal">(optional)</span></label>
+                            <label for="suggestCategory" class="block text-sm font-medium text-gray-700 mb-1">Or choose a category <span class="text-gray-400 font-normal">(optional)</span></label>
                             <select id="suggestCategory" name="category"
                                 class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent bg-white">
                                 <option value="">Select a category…</option>
@@ -346,7 +349,7 @@
                             class="w-full py-3.5 bg-[#0f766e] hover:bg-[#0d9488] text-white rounded-2xl font-semibold transition">
                             Share my interest
                         </button>
-                        <p id="suggestThanks" class="hidden text-center text-sm text-[#0f766e] font-medium pt-1">Thanks — your input helps shape what we offer.</p>
+                        <p id="suggestThanks" class="hidden text-center text-sm text-[#0f766e] font-medium pt-1">Thanks — your input helps shape which peptides we explore first.</p>
                         <p class="text-xs text-gray-500 text-center">We never sell your information. Email is optional.</p>
                     </form>
                 </div>
@@ -697,7 +700,7 @@
             const thanks = document.getElementById('suggestThanks');
 
             if (!peptide && !category) {
-                alert('Please enter a peptide name or choose a category.');
+                alert('Please enter a peptide you’re interested in or choose a category.');
                 return;
             }
 
