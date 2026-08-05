@@ -722,21 +722,29 @@
             btn.disabled = true;
             btn.textContent = 'Submitting…';
 
-            // Use form-encoded body — most reliable with Google Apps Script + no-cors
-            const body = new URLSearchParams();
-            body.append('source', 'peptide-suggestion');
-            body.append('peptide', peptide);
-            body.append('email', email || '');
+            // Same JSON pattern as the working quiz
+            const payload = {
+                source: 'peptide-suggestion',
+                peptide: peptide,
+                email: email || '',
+                firstName: '',
+                phone: '',
+                state: '',
+                goal: '',
+                energyLevel: '',
+                priorExperience: '',
+                timeline: '',
+                ageRange: ''
+            };
 
             try {
                 await fetch(PEPTIDE_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    body: body
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
                 });
-            } catch (err) {
-                // no-cors: browser can't read response; treat as sent
-            }
+            } catch (err) {}
 
             document.getElementById('suggestPeptide').value = '';
             document.getElementById('suggestEmail').value = '';
