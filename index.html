@@ -282,9 +282,9 @@
     <section id="peptides" class="section-padding px-6 bg-white">
         <div class="max-w-screen-2xl mx-auto">
             <div class="text-center mb-12">
-                <span class="uppercase text-xs font-semibold tracking-widest text-[#22d3ee]">Examples of peptides</span>
-                <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Popular options we help coordinate</h2>
-                <p class="mt-4 text-gray-600 max-w-md mx-auto">Here are a few examples of the high-quality peptides people commonly explore for energy, recovery, and balance.</p>
+                <span class="uppercase text-xs font-semibold tracking-widest text-[#22d3ee]">In development</span>
+                <h2 class="text-4xl lg:text-5xl font-semibold text-[#0f766e] mt-3">Peptides we are exploring</h2>
+                <p class="mt-4 text-gray-600 max-w-xl mx-auto">Examples of peptides people commonly explore for energy, recovery, and balance. These are not currently available through Keyra — final options depend on clinician review and our pharmacy partners.</p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
@@ -313,7 +313,35 @@
                 </div>
             </div>
             
-            <p class="text-center text-xs text-gray-500 mt-10">Keyra coordinates access through licensed clinicians and authorized compounding pharmacies. We do not prescribe or dispense medication.</p>
+            <div class="mt-10 max-w-2xl mx-auto">
+                <p class="text-sm text-gray-600 bg-[#f8fffe] border border-[#e0f2f1] rounded-2xl px-6 py-4 text-center">
+                    <span class="font-medium text-[#0f766e]">Transparency note:</span> We are evaluating which peptides we can responsibly coordinate access to. The options above are areas of interest — not a live catalog.
+                </p>
+                <p class="text-xs text-gray-500 mt-4 text-center">Keyra coordinates access through licensed clinicians and authorized compounding pharmacies. We do not prescribe or dispense medication.</p>
+
+                <!-- Suggest a peptide -->
+                <div class="mt-10 border border-gray-100 rounded-3xl p-6 md:p-8 bg-white premium-shadow">
+                    <h3 class="text-xl font-semibold text-[#0f766e] text-center">Looking for something else?</h3>
+                    <p class="mt-2 text-sm text-gray-600 text-center">Tell us a peptide you’re interested in. We’ll use this to guide what we explore next — no commitment.</p>
+                    <form id="peptideSuggestForm" class="mt-6 space-y-4" onsubmit="return submitPeptideSuggestion(event)">
+                        <div>
+                            <label for="suggestPeptide" class="block text-sm font-medium text-gray-700 mb-1">Peptide name</label>
+                            <input type="text" id="suggestPeptide" name="peptide" required placeholder="e.g. Sermorelin, GHK-Cu…"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="suggestEmail" class="block text-sm font-medium text-gray-700 mb-1">Email <span class="text-gray-400 font-normal">(optional)</span></label>
+                            <input type="email" id="suggestEmail" name="email" placeholder="So we can follow up if relevant"
+                                class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#22d3ee] focus:border-transparent">
+                        </div>
+                        <button type="submit" id="suggestBtn"
+                            class="w-full py-3.5 bg-[#0f766e] hover:bg-[#0d9488] text-white rounded-2xl font-semibold transition">
+                            Submit interest
+                        </button>
+                        <p id="suggestThanks" class="hidden text-center text-sm text-[#0f766e] font-medium pt-1">Thanks — we’ve noted your interest.</p>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -678,6 +706,49 @@
             `;
         }
         
+
+        // ========== PEPTIDE SUGGESTION → Google Sheet ==========
+        const PEPTIDE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxOJQUvJxAXq0j19l-ot5reLeRNXE0fr-mVQnYmk21i4axHFAyEfmu5MacofNy34_G/exec';
+
+        async function submitPeptideSuggestion(e) {
+            e.preventDefault();
+            const peptide = document.getElementById('suggestPeptide').value.trim();
+            const email = document.getElementById('suggestEmail').value.trim();
+            const btn = document.getElementById('suggestBtn');
+            const thanks = document.getElementById('suggestThanks');
+
+            if (!peptide) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Submitting…';
+
+            const payload = {
+                source: 'peptide-suggestion',
+                peptide: peptide,
+                email: email || '',
+                timestamp: new Date().toISOString()
+            };
+
+            try {
+                await fetch(PEPTIDE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+            } catch (err) {
+                // no-cors still "succeeds" from browser perspective; show thanks either way
+            }
+
+            document.getElementById('suggestPeptide').value = '';
+            document.getElementById('suggestEmail').value = '';
+            btn.disabled = false;
+            btn.textContent = 'Submit interest';
+            thanks.classList.remove('hidden');
+            setTimeout(() => thanks.classList.add('hidden'), 5000);
+            return false;
+        }
+
         // Initialize
         window.onload = function() {
             initTailwind();
